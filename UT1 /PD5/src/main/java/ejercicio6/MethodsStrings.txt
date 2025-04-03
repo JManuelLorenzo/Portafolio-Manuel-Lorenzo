@@ -1,0 +1,26 @@
+substring()	Extrae una parte de la cadena.
+Tiene dos variantes substring(int index) desde el index al final, substring(int indexA,  int indexB) desde indexA hasta indexB.
+split()	Divide la cadena en un array.
+split(String regex) usa un expresion, o un patron
+split(String regex, int limit ) usa un expresion, o un patron pero tiene un limite, de tipo int.
+
+subSequence()	como substring(), pero devuelve CharSequence.
+trim()	Elimina espacios blancos al inicio y final de una string.
+toLowerCase()	Convierte una string a minúsculas.
+toUpperCase()	Convierte una string  a mayúsculas.
+indexOf()	Encuentra la primera aparición de un carácter o subcadena.
+- indexOf(String str) devuelve el indice de la primera aparicion.
+ - indexOf(String str, int fromIndex) Hace lo mismo pero comienza desde fromIndex
+ - indexOf(int ch) Busca el primer caracter basado el valor de unicode
+ - indexOf(int ch, int fromIndex)  Busca el ultimo caracter basado el valor de unicode y comienza la busqueda desde fromIndex
+lastIndexOf()	Encuentra la última aparición de un carácter o subcadena.
+- lastIndexOf(String str) devuelve el indice de la ultima aparicion.
+ - lastIndexOf(String str, int fromIndex) Hace lo mismo pero comienza desde fromIndex
+ - lastIndexOf(int ch) Busca el ultimo caracter basado el valor de unicode
+ - lastIndexOf(int ch, int fromIndex)  Busca el ultimo caracter basado el valor de unicode y comienza la busqueda desde fromIndex
+contains()	Verifica si la cadena contiene otra subcadena.
+replace()	Reemplaza caracteres o subcadenas.
+- replace(char oldChar, char newChar)  Reemplaza un carácter por otro.
+- replace(CharSequence target, CharSequence replacement)  Reemplaza una subcadena por otra.
+replaceAll()	Reemplaza todas las coincidencias con una expresión regular.
+replaceFirst()	Reemplaza la primera coincidencia con una expresión regular
