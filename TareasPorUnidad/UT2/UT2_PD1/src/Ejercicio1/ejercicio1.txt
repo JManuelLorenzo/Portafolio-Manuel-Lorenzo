@@ -1,0 +1,2 @@
+El ejercicio 2 tiene un orden de O(n^2) por las propiedades que tiene el algoritmo de bubble sort, y como recorre los "hasta".
+El intercambio ocurre en el peor de los casos n^2 veces aunque su orden sea constante en un caso independiente.
