@@ -1,0 +1,108 @@
+1. Escribe lenguaje natural, precondiciones y postcondiciones y seudocódigo para cada operación
+Estas son todas las operaciones posibles:
+
+° Crear los elementos y la lista
+• Insertar un elemento en una lista (al final, la lista no está ordenada)
+• Buscar un elemento en una lista
+• Listar (imprimir) todos los elementos de una lista
+• Eliminar un elemento de una lista, dada su clave.
+
+Para crear los elementos, que son llamados nodos se necesita crear una clase nodo e implementarla en la lista de forma privada y que el constructor de nodo
+utilce como parametro la informacion. Existen muchas maneras de hacerlo pues depende la implementacion, en referido a curso lo que yo conozco  es expresar en el constructor
+del nodo el dato a ingresar, ejemplo un número y cual es el siguiente nodo, y que estos se asignen a dos atributos de este mismo objeto.
+En caso de ser el ultimo nodo se podria
+utilizar el parametro null para indicar que no hay un siguiente nodo y tambíen lo mismo si se trata de un nodo que no contiene un dato.
+Además hay que guardar el primer nodo como cabeza.
+-Precondiciones:
+Los datos pueden ser de cualquier tipo
+El siguiente node puede ser de cualquier tipo
+
+Pseudocódigo:
+Lista(dato)
+    nodo = Lista(dato)
+    Lista.cabeza = nodo
+    Lista.ultimo = nodo
+    return cabeza;
+
+-Postcondiciones:
+Devuelve crea una lista y crea los elementos.
+
+• Insertar un elemento en una lista (al final, la lista no está ordenada)
+Cada vez que se añade un elemento en la lista se cambia un atributo del objeto lista
+llamado ultimo y siempre se añade despues de este al nodo.
+Precondicion:
+la lista no es de tipo circular.
+la lista  utiliza un indicador del ultimo nodo guardado.
+Postcondicion:
+Se debe añadir un nodo a la lista correctamente.
+Pseudocodigo
+Insertar(Nodo){
+ Lista.ultimo.siguiente = nodo;
+ Lista.ultimo = nodo;
+}
+• Buscar un elemento en una lista
+Se debe buscar a un nodo en un lista. Para esto recorreremos hasta al final y si
+antes nos encontramos con el nodo que queremos dejaremos de recorrer la lista y retornaremos ese nodo.
+Precondiciones:
+El nodo puede no existir en la lista.
+El nodo puede no tener datos adentro.
+El nodo puede ser tanto el primero como el ultimo o un intermedio.
+Postcondciones:
+El metodo va a devolver a el nodo
+El nodo no debe ser modificado
+el nodo no debe ser removido o cambiado de posicion en relación a la lista.
+La lista no puede ser circular.f
+Pseudocódigo:
+Buscar(Nodo nodoBuscar)
+    nodo = cabeza
+    Mientras nodo <> null
+    nodo = nodo.siguiente
+        Si nodo == nodoBuscar
+            return nodoBuscar
+    return null
+
+• Listar (imprimir) todos los elementos de una lista
+Lenguaje Natural:
+Se recorren todos los nodos y por cada uno se imprime el valor de los datos. Para implementar la solucion
+hare un mientras el nodo sea distinto de null e ire recorriendo cada nodo. Se ira sumando cada dato a un acumulador, en
+formato de String.
+Precondicion:
+La lista no debe ser vacia.
+La lista puede tener elementos o datos repetidos.
+La lista no puede ser circular.
+Postcondicion:
+Se debe devolver una String
+La lista no se vera afectada
+Pseudocodigo
+Imprimir()
+    nodo = cabeza
+    acumulador = ""
+    mientras nodo <> null
+        acumulador = acumulador + nodo.dato convertido a String + " "
+        nodo = nodo.siguiente
+    return acumulador
+
+
+• Eliminar un elemento de una lista, dada su clave.
+Lenguaje Natural:
+Se debe implementar la busqueda pero ahora aplicandola a través de la clave del objeto buscado. Se busca hasta el final
+aplicando un mientras y se encuentra antes con algun nodo que cumpla con la condición de la clave se devuelve ese nodo.
+Sino devuelve null.
+precondicion:
+Puede no coincidir con ningun nodo la clave.
+Los nodos tienen claves. // O la letra deberia decir DATO y no clave.
+La lista puede ser vacia.
+
+postcodicion:
+No debe afectar la lista.
+Debe retornar un elemento con esa clave.
+
+Eliminar(clave clave) // No se el tipo del dato que estoy buscando.
+    nodo = cabeza
+    Si nodo.clave = clave
+        cabeza = nodo.siguiente
+        return null 
+    Mientras cabeza <> null
+        Si nodo.siguiente.clave == clave
+            nodo.siguiente = nodo.siguiente.siguiente
+    
