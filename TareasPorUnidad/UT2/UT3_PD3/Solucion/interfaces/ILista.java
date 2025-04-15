@@ -1,6 +1,7 @@
+package Solucion.interfaces;
+import Solucion.Ejercicio2.Nodo;
 
 public interface ILista<T> {
-
     /**
      * Metodo encargado de agregar un nodo al final de la lista.
      *
@@ -60,6 +61,6 @@ public interface ILista<T> {
      */
     public boolean esVacia();
     
-    public void setPrimero( Nodo<T> unNodo);    
+    public void setPrimero( Nodo<T> unNodo);
 
 }
