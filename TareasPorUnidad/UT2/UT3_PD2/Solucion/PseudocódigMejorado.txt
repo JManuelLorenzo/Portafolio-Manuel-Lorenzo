@@ -1,0 +1,17 @@
+
+
+nodo es nuestro nuevo elemento a insertar en el codigo.
+COMIENZO
+    SI Cabeza es null ENTONCES // Caso lista vacía
+        Cabeza <- nodo
+    SINO SI nodo.nombre es menor alfabéticamente que Cabeza.nombre ENTONCES // Caso nodo va al principio
+        nodo.siguiente <- Cabeza
+        Cabeza <- nodo
+    SINO // Buscar la posición correcta en la lista
+        temp <- Cabeza
+        MIENTRAS temp.siguiente <> null Y temp.siguiente.nombre es menor alfabéticamente que nodo.nombre HACER
+            temp <- temp.siguiente
+        FIN MIENTRAS
+        nodo.siguiente <- temp.siguiente
+        temp.siguiente <- nodo
+FIN
