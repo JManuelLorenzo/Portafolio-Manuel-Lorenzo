@@ -32,8 +32,8 @@ public class ejercicio2 {
         for(int i = 1; i < N-1; i ++){
           
             for(int j = N; j >= i; j-- ){ // Adapte el código porque no estaba tomado en cuenta que arranca desde 0 el indice, lo que hacia que se rompiera el codigo.
-                // Sino el bubble sort no se cumplia. 
-                counter++;
+                // Sino el bubble sort no se cumplia.  
+                counter++;      
                 if( container[j] < container[j-1]){
                     int temp = container [j];
                     container[j] = container [j-1];

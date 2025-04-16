@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="PD4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PD4/altas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/PD4/ventas.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
