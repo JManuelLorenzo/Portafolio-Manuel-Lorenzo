@@ -1,0 +1,55 @@
+- especificación en lenguaje natural,
+• pre y post condiciones,
+• seudocódigo y
+• especificación de casos de prueba.
+• Analiza detalladamente el orden del tiempo de ejecución de estos algoritmos.
+
+Precondiciones:
+Los conjuntos tienen que estar previamente ordenados.
+No pueden elementos repetidos.
+
+Postcondiciones:
+Debe devolver la interseccion entre dos conjuntos
+No devuelve ningun elemento repetido.
+Puede ser que no este ordenado.
+
+
+
+Casos de prueba:
+A y B son de igual tamaño
+A y B son de diferente tamaño.
+A y B tienen valores  lejanos ejemplo A{1,2,3} B{5,12}
+A y B tienen valores  lejanos pero alguno se repite ejemplo A{1, 2, 3} B{5, 2, 12, 45, 3}
+
+
+Analisis de Orden:
+El orden es O(n+m) por lo tanto es O(n) ya que unicamente utiliza un mientras y depende
+de condicionales.
+Pseudocódigo:
+
+ConjuntoA y ConjuntoB.
+COMIENZO
+
+conjuntoC <- Un conjunto Vacio.
+SI cantidad de elementos de conjuntoA  >= cantidad de elementos de conjuntoB  ENTONCES
+    conjuntoMenor <- conjuntoB
+    conjuntoMayor <- conjuntoA
+SINO
+    conjuntoMenor <- conjuntoA
+    conjuntoMayor <- conjuntoB
+nodoMayor <- conjuntoMayor Buscar el nodo cabeza.
+nodoMenor <- conjuntoMenor Buscar el nodo  cabeza.
+
+MIENTRAS (nodoMayor <> null) ENTONCES // O(n)
+  SI nodoMayor dato == nodoMenor dato Entonces
+    conjuntoC insertar nodoMayor
+    nodoMenor <- nodoMenor getSiguiente
+     nodoMayor <- nodoMayor getSiguiente
+  SI nodoMayor dato < nodoMenor dato Entonces
+    nodoMayor <- nodoMayor getSiguiente
+  SI nodoMayor dato > nodoMenor dato Entonces
+      nodoMenor <- nodoMenor getSiguiente
+
+retornar conjuntoC
+  Fin
+)

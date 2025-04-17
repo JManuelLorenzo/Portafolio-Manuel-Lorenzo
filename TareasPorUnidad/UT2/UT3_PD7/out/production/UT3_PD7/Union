@@ -1,0 +1,81 @@
+• especificación en lenguaje natural,
+• pre y post condiciones,
+• seudocódigo y
+• especificación de casos de prueba.
+• Analiza detalladamente el orden del tiempo de ejecución de estos algoritmos.
+
+La union como tal es una operacion de conjutos donde se obtienen todos elementos entre dos conjuntos, sin importar
+la importar presencia de uno en el otro. Lo que se me ocurrer hacer es recorrer ambos a la vez a través iterar el más
+pequeño hasta su final. Como los elementos ya estar ordenados si son iguales añado unicamente uno. Y si son diferentes
+comparo y añado el más pequeño primero y luego el más grande  pero hay un caso borde( lo explicare despues) se debe terminar
+de iterar la lista grande y añadir eso a la nueva lista.
+
+precondiciones:
+Los conjuntos entrantes deben estar ordenados.
+Deben ser estar construidos en estructura de datos linked list o similar que permita la utilización de nodos.
+No puede estar en Array list.
+Los elementos no deben repetirse.
+
+Postcondiciones:
+No importa si un elemento queda desordenado
+No deben repetirse los elementos.
+
+Casos de prueba:
+Existen varios casos bordes, probe varios casos:
+Conjunto A = {1,2,3} Conjunto B = {4,5,6}  Conjunto C = {1, 2, 3, 4, 5, 6}
+Conjunto A = {1,2} Conjunto B = {2,1}  Conjunto C = {1, 2,}
+Conjunto A = {1,2,3} Conjunto B = {4,5,6}  Conjunto C = {1, 2, 3, 4, 5, 6}
+Conjunto A = {1,2,3} Conjunto B = {4,5,6}  Conjunto C = {1, 2, 3, 4, 5, 6}
+
+
+Pseudocódigo:
+
+ConjuntoA y ConjuntoB.
+COMIENZO
+nodoTemp <- Nodo temporal
+conjuntoC <- Un conjunto Vacio.
+SI cantidad de elementos de conjuntoA  >= cantidad de elementos de conjuntoB  ENTONCES
+    conjuntoMenor <- conjuntoB
+    conjuntoMayor <- conjuntoA
+SINO
+    conjuntoMenor <- conjuntoA
+    conjuntoMayor <- conjuntoB
+nodoMayor <- conjuntoMayor Buscar el nodo cabeza.
+nodoMenor <- conjuntoMenor Buscar el nodo  cabeza.
+nodoLastAdded <- null
+MIENTRAS (nodoMenor <> null) ENTONCES
+    SI nodoMayor Dato == nodoMenor Dato ENTONCES
+        SI nodoLastAdded Dato <> nodoMayor Dato ENTONCES
+            conjuntoC insertar nodoMayor // Son iguales
+            nodoLastAdded <- nodoMayor
+    SINO
+
+       SI nodoMayor Dato > nodoMenor Dato ENTONCES
+            SI nodoMenor Dato <> nodoLastAdded Dato ENTONCES
+                conjuntoC insertar nodoMenor
+                nodoTemp <- nodoMenor
+            SI nodoMayor Dato <> nodoLastAdded Dato ENTONCES
+                conjuntoC Insertar nodoMayor
+                nodoTemp <- nodoMayor
+            nodoLastAdded <- nodoTemp
+
+
+       SINO
+            SI nodoMayor Dato <> nodoLastAdded Dato ENTONCES
+                conjuntoC insertar nodoMayor
+                nodoTemp <- nodoMayor
+            SI nodoMenor Dato <> nodoLastAdded Dato ENTONCES
+                conjuntoC insertar nodoMenor
+                 nodoTemp <- nodoMenor
+           nodoLastAdded <- nodoTemp
+
+    nodoMayor <- nodoMayor getSiguiente
+    nodoMenor <- nodoMenor getSiguiente
+    Mientras nodoMayor <> null ENTONCES
+        SI nodoMayor Dato <> nodoLastAdded ENTONCES
+         conjuntoC insertar nodoMayor
+        nodoMayor <- nodoMayor getSiguiente
+
+retornar conjuntoC
+FIN
+
