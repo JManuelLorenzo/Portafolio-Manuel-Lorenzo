@@ -1,0 +1,18 @@
+1) Esta en SurcusalesArray
+2) La diferencia se basa en la utilizacion de TDA de listas enlazadas, la diferencia radica en que una,
+los linked list permiten un sistema para almacener informacion adaptandose siempre al tamaño de  lo que se requiere
+sin requerir una redimension, lo que implica un consumo de memoria adicional.
+3) Bueno como ya explique en el punto anterior la array list gasta menos memoria de por si ya que consume menos
+por las referencias que son menores, mientras que la linked tiene más referencias pero no necesita redimensionarse, lo que
+implica una ventaje en ese punto. Y no necesita que al mover un elemento en el intermedio se deben mover todos los elementos
+posteriores. lo que provoca consumo por parte da arraylist.
+Depende tambíen del tipo de linked list ya que si tiene referencias hacia atras y delante o si simplemente es de tipo simple.
+4)
+ada O(N) si se redimensiona la array que es el peor caso posible.
+find O(N) si tiene que recorrer hasta el final.
+listAllO(N) siempre.
+quantitySize O(1) por lo que averigue size es un contador interno y simplemente se le va sumando o restando en las operaciones.
+isEmpty O(1) lo mismo.
+5) En otro archivo.
+La primera da 107.
+Da Shenzen en el segundo.

@@ -1,0 +1,31 @@
+1) Esta en SurcusalesArray
+2) La diferencia se basa en la utilizacion de TDA de listas enlazadas, la diferencia radica en que una,
+los linked list permiten un sistema para almacener informacion adaptandose siempre al tamaño de  lo que se requiere
+sin requerir una redimension, lo que implica un consumo de memoria adicional.
+3) Bueno como ya explique en el punto anterior la array list gasta menos memoria de por si ya que consume menos
+por las referencias que son menores, mientras que la linked tiene más referencias pero no necesita redimensionarse, lo que
+implica una ventaje en ese punto. Y no necesita que al mover un elemento en el intermedio se deben mover todos los elementos
+posteriores. lo que provoca consumo por parte da arraylist.
+Depende tambíen del tipo de linked list ya que si tiene referencias hacia atras y delante o si simplemente es de tipo simple.
+4)
+ada O(N) si se redimensiona la array que es el peor caso posible.
+find O(N) si tiene que recorrer hasta el final.
+listAllO(N) siempre.
+quantitySize O(1) por lo que averigue size es un contador interno y simplemente se le va sumando o restando en las operaciones.
+isEmpty O(1) lo mismo.
+5) En otro archivo.
+La primera da 107.
+Da Shenzen en el segundo.
+
+--------------------
+La cantidad de elementos es 107
+El primer test da 0 Dubai 1 Nueva York 2 Shanghai 3 Hong Kong 4 Chicago 5 Shenzhen 6 Tokio 7 Singapur 8 Panama City 9 Guangzhou 10 Yakarta 11 Houston 12 Chongqing 13 Bangkok 14 Los Angeles 15 Kuala Lumpur 16 Busan 17 Atlanta 18 Nankin 19 Doha 20 Seul 21 Abu Dhabi 22 Toronto 23 Manila 24 Dalian 25 Wuhan 26 Melbourne 27 Sidney 28 Moscu 29 Dallas 30 Frankfurt 31 Filadelfia 32 Incheon 33 Tianjin 34 Pekin 35 Ciudad de Kuwait 36 Qingdao 37 Wuxi 38 Suzhou 39 Madrid 40 Seattle 41 Mineapolis 42 Charlotte 43 Sharjah 44 La Meca 45 Estambul 46 Miami 47 San Francisco 48 Denver 49 Cleveland 50 Osaka 51 Hangzhou 52 Hanoi 53 Riad 54 Nagoya 55 Macao 56 Manama 57 Brisbane 58 Londres 59 Xian 60 Paris  61 Boston 62 Pittsburgh 63 Cincinnati 64 Ciudad de Mexico 65 Calgary 66 Montreal 67 Caracas 68 Mumbai 69 Taipei 70 Kaohsiung 71 Nanchang 72 Changsha 73 Ulsan 74 Nanning 75 Karachi 76 Bucheon 77 Zhongshan 78 Gold Coast 79 Perth 80 Milan 81 Jersey City 82 Detroit 83 Nueva Orleans 84 Austin 85 Indianapolis 86 Tulsa 87 Mobile 88 Vancouver 89 Ciudad Ho Chi Minh 90 Xiamen 91 Ajman 92 Yokohama 93 Kawasaki 94 Xian 95 Xian 96 Ningbo 97 Wenzhou 98 Urumqi 99 Pulau Pinang 100 Guiyang 101 Ramat Gan 102 Nantong 103 Dongguan 104 Changzhou 105 Izumisano
+0 Dubai 1 Nueva York 2 Shanghai 3 Hong Kong 4 Shenzhen 5 Tokio 6 Singapur 7 Panama City 8 Guangzhou 9 Yakarta 10 Houston 11 Chongqing 12 Bangkok 13 Los Angeles 14 Kuala Lumpur 15 Busan 16 Atlanta 17 Nankin 18 Doha 19 Seul 20 Abu Dhabi 21 Toronto 22 Manila 23 Dalian 24 Wuhan 25 Melbourne 26 Sidney 27 Moscu 28 Dallas 29 Frankfurt 30 Filadelfia 31 Incheon 32 Tianjin 33 Pekin 34 Ciudad de Kuwait 35 Qingdao 36 Wuxi 37 Suzhou 38 Madrid 39 Seattle 40 Mineapolis 41 Charlotte 42 Sharjah 43 La Meca 44 Estambul 45 Miami 46 San Francisco 47 Denver 48 Cleveland 49 Osaka 50 Hangzhou 51 Hanoi 52 Riad 53 Nagoya 54 Macao 55 Manama 56 Brisbane 57 Londres 58 Xian 59 Paris  60 Boston 61 Pittsburgh 62 Cincinnati 63 Ciudad de Mexico 64 Calgary 65 Montreal 66 Caracas 67 Mumbai 68 Taipei 69 Kaohsiung 70 Nanchang 71 Changsha 72 Ulsan 73 Nanning 74 Karachi 75 Bucheon 76 Zhongshan 77 Gold Coast 78 Perth 79 Milan 80 Jersey City 81 Detroit 82 Nueva Orleans 83 Austin 84 Indianapolis 85 Tulsa 86 Mobile 87 Vancouver 88 Ciudad Ho Chi Minh 89 Xiamen 90 Ajman 91 Yokohama 92 Kawasaki 93 Xian 94 Xian 95 Ningbo 96 Wenzhou 97 Urumqi 98 Pulau Pinang 99 Guiyang 100 Ramat Gan 101 Nantong 102 Dongguan 103 Changzhou 104 Izumisano
+
+
+--------------------
+Segundo test
+Esta linea rompe el codigo: testDos.remove(1);
+--------------------
+TercerTest
+Montreal;_Caracas;_Tulsa;_Mobile;_
