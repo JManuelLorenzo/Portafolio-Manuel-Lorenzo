@@ -1,0 +1,34 @@
+Tenemos una aplicación que recibe información desde el exterior y la va procesando a medida que llega.
+Lamentablemente, las velocidades de arribo y proceso de la información son muy diferentes, por lo que resulta
+necesario poner “buffers” entre medio para adaptar los sistemas. Hemos entonces decidido que lo mejor será
+hacerlo usando colas circulares, implementadas con vectores.
+
+
+
+Ejercicio 1:
+Desarrolla un algoritmo en seudocódigo que implemente la operación PoneEnCola (unElemento), para un TDA
+Cola implementado con un “vector circular”.
+-Tengo dos variables que asumo y llamo siguiente y primero. Son dos punteros uno apuntando a el siguiente elemento y otro al primer elemento.
+La arraylist donde se van asignando estos datos se llama dato.
+N es el tamaño del array.
+COMIENZO
+Metodo PoneEnCola( elemento )
+  SI ( (siguiente + 1) mod N ) <> inicio ENTONCES
+     dato[siguiente] <- elemento
+     siguiente <- siguiente + 1
+Fin Metodo
+FIN
+
+Ejercicio 2:
+-Tengo dos variables que asumo y llamo siguiente y primero. Son dos punteros uno apuntando a el siguiente elemento y otro al primer elemento.
+La arraylist donde se van asignando estos datos se llama dato.
+N es el tamaño del array.
+COMIENZO
+Metodo QuitaDeCola()
+  SI dato[inicio] <> null
+    temp <- dato[inicio]
+    dato[inicio] <- null
+    inicio <- (inicio + 1) mod N
+    return temp
+Fin Metodo
+FIN
