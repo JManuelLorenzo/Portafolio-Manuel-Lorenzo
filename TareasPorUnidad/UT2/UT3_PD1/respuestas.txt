@@ -1,0 +1,56 @@
+Respuestas:
+Ejercicio 1)
+estado inicial:
+nodo1 - nodo2 -nodo 3
+otroNodo - nodo1 - nodo2 - nodo3
+Inserta un elemento al principio de la lista
+
+Ejercicio 2)
+estado inicial:
+nodo1 - nodo2 -nodo 3
+nodo1 - nodo3
+C) Elimina a el nodo2 de la lista.
+
+
+Ejercicio 3)
+estado inicial:
+nodo1 - nodo2 -nodo 3
+
+Nuevo nodo otroNodo
+otroNodo - nodo2 - nodo3
+nodo1 - otroNodo - nodo2 - nodo3
+Inserta otroNodo en la lista entre medio de 1 y 2.
+La respuesta es B.
+
+Ejercicio 4)
+No hay estado inicial consistente.
+Nuevo nodo otroNodo
+Nuevo nodo nodoActual
+nodoActual <-  primero.
+La respuesta es la d) ya que
+siempre al final de una lista si asumimos que no es circular
+se llega un null y no se puede utilizar null.siguiente por lo tanto
+el algoritmo siempre da un error de ejecucion.
+
+Ejercicio 5)
+C) Porque si la lista es vacia da error
+ya que el mientras no da problema pero la
+ultima linea si.
+nodoActual.siguiente <- otroNodo. El atributo siguiente
+no existen en null por lo tanto causa un error.
+Ejercicio 6)
+a)
+El costo de memoria es diferente en cada uno,
+siendo la linkedlist costando más por elemento pero no requiere
+redimensionamiente pero tiene más referencias hacia atras y a adelante.
+Y tiene las referencias a la ultima posición y a la primera.
+Mientras que la array list utilza redimensionamiento pero consume menos por cantidad
+de elementos. Y si no se dejan espacios libres ocupa menos que la linked list ya que tiene un
+object[] y menos referencias.
+Aunque en ambas estructuras la búsqueda es de O(N)
+Si un alumno abandona el curso, el ArrayList requiere desplazar todos los elementos posteriores
+lo que puede ser costoso. Sin embargo, considerando que los cursos universitarios típicamente tienen aproximadamente 30 alumnos
+ y ocurren al comienzo de las clases entonces esta bien.
+La capacidad del ArrayList para acceder directamente a los alumnos por índice (si implementamos un mapeo adecuado)
+permite organizar mejor la información en el sistema
+ y optimizar operaciones frecuentes como el registro de asistencia y el cálculo de estadísticas.
