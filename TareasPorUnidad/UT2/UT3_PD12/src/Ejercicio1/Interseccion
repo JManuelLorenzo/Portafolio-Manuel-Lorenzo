@@ -1,0 +1,56 @@
+--Operación Intersección-----------
+Lenguaje Natural: Dados dos conjuntos de listas ordenadas, se devuelve una nueva lista ordenada que contiene los elementos comunes a ambas listas sin duplicados.
+
+Precondiciones:
+Los conjuntos tienen que estar previamente ordenados.
+No pueden elementos repetidos.
+
+Postcondiciones:
+Debe devolver la interseccion entre dos conjuntos
+No devuelve ningun elemento repetido.
+Puede ser que no este ordenado.
+
+
+
+Casos de prueba:
+A y B son de igual tamaño
+A y B son de diferente tamaño.
+A y B tienen valores  lejanos ejemplo A{1,2,3} B{5,12}
+A y B tienen valores  lejanos pero alguno se repite ejemplo A{1, 2, 3} B{5, 2, 12, 45, 3}
+
+
+Analisis de Orden:
+El orden es O(n+m) por lo tanto es O(n) ya que unicamente utiliza un mientras y depende
+de condicionales.
+Pseudocódigo:
+
+ConjuntoA y ConjuntoB.
+COMIENZO
+
+conjuntoC <- Un conjunto Vacio.
+SI cantidad de elementos de conjuntoA  >= cantidad de elementos de conjuntoB  ENTONCES
+    conjuntoMenor <- conjuntoB
+    conjuntoMayor <- conjuntoA
+SINO
+    conjuntoMenor <- conjuntoA
+    conjuntoMayor <- conjuntoB
+nodoMayor <- conjuntoMayor Buscar el nodo cabeza.
+nodoMenor <- conjuntoMenor Buscar el nodo  cabeza.
+
+MIENTRAS (nodoMayor <> null) ENTONCES // O(n)
+  SI nodoMayor etiqueta == nodoMenor etiqueta Entonces
+    conjuntoC insertar nodoMayor
+    nodoMenor <- nodoMenor getSiguiente
+     nodoMayor <- nodoMayor getSiguiente
+  SI nodoMayor etiqueta < nodoMenor etiqueta Entonces
+    nodoMayor <- nodoMayor getSiguiente
+  SI nodoMayor etiqueta > nodoMenor etiqueta Entonces
+      nodoMenor <- nodoMenor getSiguiente
+
+retornar conjuntoC
+  Fin
+)
+
+Orden de ejecución:El bucle existente tiene un orden de ejecución que se ejecuta en el peor de los casos n+m veces,
+todas las operaciones dentro del bucles son de tiempo constante y ningún elemento se procesa más de una vez.
+Esto hace que el orden de progresión sea lineal u O(n).

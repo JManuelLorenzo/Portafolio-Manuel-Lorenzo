@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a137a92c-b0da-4d57-8a63-39ae7a8199a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../UT3_PD12/src/Ejercicio1/Interseccion" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UT3_PD12/src/Ejercicio1/Union" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT2_PD1(1).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT2_PD1.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../UT2_PD1.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT2_PD3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD12.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD12/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD12/src/Conjunto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD12/src/Conjunto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD12/src/Nodo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD12/src/Nodo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD12/src/ProgramaPD12.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD12/src/ProgramaPD12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD3.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD4.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD4.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/Solucion/ILista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/Solucion/INodo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/Solucion/Lista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/Solucion/Nodo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/Solucion/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/UT3_PD6 2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/UT3_PD6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/ciudades.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/interfacesYUtilTA2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/out/production/UT3_PD6 2/ILista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/out/production/UT3_PD6 2/INodo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/out/production/UT3_PD6 2/Lista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/out/production/UT3_PD6 2/Nodo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/out/production/UT3_PD6 2/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/respuestas.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/suc1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/suc2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/suc3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6 2/sucursales.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD6.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solucion/Ejercicio1/Interseccion" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solucion/Ejercicio1/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solucion/Ejercicio1/UT3_PD7.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solucion/Ejercicio1/Union" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solucion/Ejercicio2/ILista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solucion/Ejercicio2/Lista.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UT3_PD7/Main$ListaEnlazada.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UT3_PD7/Main$Nodo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UT3_PD7/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UT3_PD7/UT3_PD7.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UT3_PD7/Union" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UT3_PD8.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../UT3_PD8.zip" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2vrQHwNLe0kp9EOgZfwuFyMFhQv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/manuellorenzo/Documents/Notes/Algoritmos &amp; Estructuras de datos/Portafolio-Manuel-Lorenzo/TareasPorUnidad/UT2/UT3_PD7/Solucion/Ejercicio2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Solucion/Ejercicio2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Ejercicio1" />
+      <recent name="$PROJECT_DIR$/Solucion/Ejercicio1" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="UT3_PD7" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="UT3_PD7" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a137a92c-b0da-4d57-8a63-39ae7a8199a3" name="Changes" comment="" />
+      <created>1744900630900</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744900630900</updated>
+    </task>
+    <servers />
+  </component>
+</project>

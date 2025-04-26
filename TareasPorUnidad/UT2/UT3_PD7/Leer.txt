@@ -1,0 +1,1 @@
+El trabajo se realizo en proyectos separados, es decir cada ejercicio es un proyecto que se debe abrir por separado.

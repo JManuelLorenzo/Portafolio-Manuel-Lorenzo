@@ -1,0 +1,90 @@
+Lenguaje Natural:
+Dados dos conjuntos representados como listas ordenadas, devuelve una nueva lista ordenada con todos los elementos de ambos conjuntos, sin duplicados.
+Precondiciones:
+
+    Las listas de entrada deben estar ordenadas.
+
+    No deben tener elementos duplicados internamente.
+
+Postcondiciones:
+
+    Devuelve un nuevo conjunto con todos los elementos de ambos conjuntos originales.
+
+    No contiene duplicados (aunque un elemento exista en ambos conjuntos, aparece una sola vez).
+
+    El resultado está ordenado.
+
+Casos de Prueba:
+
+    Conjuntos de igual tamaño:
+
+        A = {1, 3, 5}, B = {2, 4, 6} → Unión = {1, 2, 3, 4, 5, 6}.
+
+    Conjuntos de diferente tamaño:
+
+        A = {1, 2}, B = {3, 4, 5, 6} → Unión = {1, 2, 3, 4, 5, 6}.
+
+    Elementos comunes:
+
+        A = {1, 2, 3}, B = {2, 3, 4} → Unión = {1, 2, 3, 4}.
+
+    Conjuntos con valores distantes:
+
+        A = {1, 2}, B = {5, 6} → Unión = {1, 2, 5, 6}.
+
+Análisis de Orden:
+
+    Complejidad: O(n + m), donde n y m son los tamaños de los conjuntos.
+
+    Razón:
+
+        Se recorren ambos conjuntos una vez en paralelo (sin bucles anidados).
+
+        Las operaciones internas (comparación, inserción) son O(1)
+
+ ConjuntoA y ConjuntoB.
+ COMIENZO
+     // Identificar el conjunto mayor para optimizar
+     SI ConjuntoA.cantElementos >= ConjuntoB.cantElementos ENTONCES
+         conjuntoMayor <- ConjuntoA
+         conjuntoMenor <- ConjuntoB
+     SI NO
+         conjuntoMayor <- ConjuntoB
+         conjuntoMenor <- ConjuntoA
+
+     conjuntoC <- conjuntoMayor.copiar()  // Copia todos los elementos del mayor
+     nodoMenor <- conjuntoMenor.primero
+     nodoMayor <- conjuntoMayor.primero
+     anteriorMayor <- null
+
+     MIENTRAS (nodoMenor <> null Y nodoMayor <> null) HACER
+         comparacion <- nodoMayor.etiqueta.compararCon(nodoMenor.etiqueta)
+
+         SI comparacion == 0 ENTONCES
+             // Elemento ya está en conjuntoMayor (no se inserta duplicado)
+             nodoMenor <- nodoMenor.siguiente
+             nodoMayor <- nodoMayor.siguiente
+         SI NO SI comparacion < 0 ENTONCES
+             // Avanzar en el conjuntoMayor (ya está en conjuntoC)
+             anteriorMayor <- nodoMayor
+             nodoMayor <- nodoMayor.siguiente
+         SI NO
+             // Insertar nodoMenor en conjuntoC (ordenadamente)
+             nuevoNodo <- Nodo(nodoMenor.etiqueta, nodoMenor.dato)
+
+             SI anteriorMayor == null ENTONCES
+                 nuevoNodo.siguiente <- conjuntoC.primero
+                 conjuntoC.primero <- nuevoNodo
+             SI NO
+                 nuevoNodo.siguiente <- nodoMayor
+                 anteriorMayor.siguiente <- nuevoNodo
+             FIN SI
+
+             anteriorMayor <- nuevoNodo
+             nodoMenor <- nodoMenor.siguiente
+         FIN SI
+     FIN MIENTRAS
+
+     // No se necesitan bucles adicionales (conjuntoMayor ya incluía todos sus elementos)
+     RETORNAR conjuntoC
+ FIN

@@ -1,0 +1,136 @@
+----------Operación Unión-----------
+
+La union como tal es una operacion de conjutos donde se obtienen todos elementos entre dos conjuntos, sin importar
+la importar presencia de uno en el otro. Lo que se me ocurrer hacer es recorrer ambos a la vez a través iterar el más
+pequeño hasta su final. Como los elementos ya estar ordenados si son iguales añado unicamente uno. Y si son diferentes
+comparo y añado el más pequeño primero y luego el más grande  pero hay un caso borde( lo explicare despues) se debe terminar
+de iterar la lista grande y añadir eso a la nueva lista.
+
+precondiciones:
+Los conjuntos entrantes deben estar ordenados.
+Deben ser estar construidos en estructura de datos linked list o similar que permita la utilización de nodos.
+No puede estar en Array list.
+Los elementos no deben repetirse.
+
+Postcondiciones:
+No importa si un elemento queda desordenado
+No deben repetirse los elementos.
+
+Casos de prueba:
+Existen varios casos bordes, probe varios casos:
+Igual:
+A{1,2} B{1,2} > C{1,2}
+Diferentes:
+A{1, 3, 4} B{1, 5, 6} > C{1, 3, 5, 4, 6}  No se repiten.
+A{1} B{2} > C{1,2}
+
+
+
+Pseudocódigo:
+
+ConjuntoA y ConjuntoB.
+COMIENZO
+
+conjuntoC <- Un conjunto Vacio.
+SI cantidad de elementos de conjuntoA  >= cantidad de elementos de conjuntoB  ENTONCES
+    conjuntoMenor <- conjuntoB
+    conjuntoMayor <- conjuntoA
+SINO
+    conjuntoMenor <- conjuntoA
+    conjuntoMayor <- conjuntoB
+nodoMayor <- conjuntoMayor Buscar el nodo cabeza.
+nodoMenor <- conjuntoMenor Buscar el nodo  cabeza.
+
+MIENTRAS (nodoMenor <> null) ENTONCES // O(n)
+    SI nodoMayor Dato == nodoMenor Dato ENTONCES
+        SI conjuntoC buscar nodoMayor clave == null  ENTONCES
+           conjuntoC insertar nodoMayor // Son iguales
+
+    SINO
+
+       SI nodoMayor Dato > nodoMenor Dato ENTONCES
+            SI conjuntoC buscar nodoMenor clave == null ENTONCES // (O
+                conjuntoC insertar nodoMenor
+
+            SI conjuntoC buscar nodoMayor clave == null  ENTONCES
+                conjuntoC Insertar nodoMayor
+
+
+       SINO
+             SI conjuntoC buscar nodoMayor clave == null  ENTONCES
+                conjuntoC insertar nodoMayor
+
+             SI conjuntoC buscar nodoMenor clave == null ENTONCES
+                conjuntoC insertar nodoMenor
+
+
+    nodoMayor <- nodoMayor getSiguiente
+    nodoMenor <- nodoMenor getSiguiente
+    Mientras nodoMayor <> null ENTONCES
+        SI conjuntoC buscar nodoMayor clave == null ENTONCES
+         conjuntoC insertar nodoMayor
+    nodoMayor <- nodoMayor getSiguiente
+
+retornar conjuntoC
+FIN
+
+Analisis de Orden:
+el orden  O(n*(n+m)) que por lo tanto es O(n^2) O sea cuadratica. Seria mucho más
+optimo con "hashtable" pero no lo hemos aprendido.
+
+----------Operación Intersección-----------
+Lenguaje Natural: Dados dos conjuntos de listas ordenadas, se devuelve una nueva lista ordenada que contiene los elementos comunes a ambas listas sin duplicados.
+
+Precondiciones:
+Los conjuntos tienen que estar previamente ordenados.
+No pueden elementos repetidos.
+
+Postcondiciones:
+Debe devolver la interseccion entre dos conjuntos
+No devuelve ningun elemento repetido.
+Puede ser que no este ordenado.
+
+
+
+Casos de prueba:
+A y B son de igual tamaño
+A y B son de diferente tamaño.
+A y B tienen valores  lejanos ejemplo A{1,2,3} B{5,12}
+A y B tienen valores  lejanos pero alguno se repite ejemplo A{1, 2, 3} B{5, 2, 12, 45, 3}
+
+
+Analisis de Orden:
+El orden es O(n+m) por lo tanto es O(n) ya que unicamente utiliza un mientras y depende
+de condicionales.
+Pseudocódigo:
+
+ConjuntoA y ConjuntoB.
+COMIENZO
+
+conjuntoC <- Un conjunto Vacio.
+SI cantidad de elementos de conjuntoA  >= cantidad de elementos de conjuntoB  ENTONCES
+    conjuntoMenor <- conjuntoB
+    conjuntoMayor <- conjuntoA
+SINO
+    conjuntoMenor <- conjuntoA
+    conjuntoMayor <- conjuntoB
+nodoMayor <- conjuntoMayor Buscar el nodo cabeza.
+nodoMenor <- conjuntoMenor Buscar el nodo  cabeza.
+
+MIENTRAS (nodoMayor <> null) ENTONCES // O(n)
+  SI nodoMayor dato == nodoMenor dato Entonces
+    conjuntoC insertar nodoMayor
+    nodoMenor <- nodoMenor getSiguiente
+     nodoMayor <- nodoMayor getSiguiente
+  SI nodoMayor dato < nodoMenor dato Entonces
+    nodoMayor <- nodoMayor getSiguiente
+  SI nodoMayor dato > nodoMenor dato Entonces
+      nodoMenor <- nodoMenor getSiguiente
+
+retornar conjuntoC
+  Fin
+)
+
+Orden de ejecución:El bucle existente tiene un orden de ejecución que se ejecuta en el peor de los casos n+m veces, 
+todas las operaciones dentro del bucles son de tiempo constante y ningún elemento se procesa más de una vez.
+Esto hace que el orden de progresión sea lineal u O(n).
