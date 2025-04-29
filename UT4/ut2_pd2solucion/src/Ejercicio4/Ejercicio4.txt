@@ -1,0 +1,44 @@
+Se Compara a través de dos indices, dos elementos de una array.
+I a la izquieda y J a la derecha. 
+Si el indice de I es menor que el de J, unicamente
+si I es mejor J, se  cambian de lugar en la Array utilizando un temp.
+Y luego se retorna la funcion con esa array cambiada y con I+1 y J-1.
+
+Precondiciones:
+La lista es una arraylist. 
+Se debe tomar I como un elemento del lado izquiedo y J del lado derecho.
+La Array no puede estar vacia. 
+Los indices no pueden ser negativos y deben ser enteros. 
+ 
+PostCondiciones:
+Se debe devolver la array con esa "seccion" invertida.
+
+
+
+Array: una array de numeros enteros
+i: indice entero no negativo:
+j: indice entero no negativo:
+COMIENZO
+Funcion(array lista, entero i, entero j)
+        Si(i < j) ENTONCES
+            temp <- lista[i]
+            lista[i] <- lista[j]
+            lista[j] <- temp
+            retorna Funcion(lista, i + 1, j - 1) 
+        SINO
+            retorna lista; // O(1)
+        FinSi
+    FinFuncion
+FIN
+
+
+
+1b) El Caso base es cuando i es mayor o igual a j. 
+Si se va a el caso base, siempre sucedera esto mientras se cumplan
+las precondiciones.
+
+
+2)  El orden de tiempo de ejecucion del algoritmo es O(T * max(1,1))
+Siendo T la cantidad de veces que se entra en la recursion. 
+
+3) En el .java

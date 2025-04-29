@@ -1,0 +1,41 @@
+Preuguntas: 
+
+1) Identifico el caso base en el codigo, es la comparacion n == 0. 
+Si, se va ir acercando cada vez cerca de 0, si se cumple con las precondiciones, porque si 
+se tratara de un número negativo seguira decreciendo infinitamente. Pero  como es declarado en
+las precondiciones, no genera problemas. 
+
+
+2) 
+O(T * max(1, 1)) o sea O(T*1) siendo T la cantidad de recursiones. 
+
+
+
+
+La parte 3 esta en el .java
+
+
+
+======================================
+precondiciones:
+el valor de n tiene que ser positivo o cero, no solamente porque va a funcionar mal
+y entrar en un bucle infinito si es negativo, sino porque tampoco tiene sentido un valor negativo.
+el vector de entrada puede ser tan grande como requiere. 
+El vector no debe estar vacio
+=====================================
+PostCondiciones:
+Debe devolver la suma de todas esas posiciones. 
+======================================
+vector <- vector de entrada de tipo int
+n <- valor int dado desde el cual empezar. 
+COMIENZO
+SumaLinea( vector de enteros vector, entero n)
+INICIO FUNCION
+    Si n == 0 ENTONCES // Caso Base 
+        retorna vector[0] //O(1)
+    Sino
+        retorna vector[n] + SumaLinea(vector, n-1) //O(1)
+    Fin Si
+FIN FUNCION
+FIN
+=======================================
