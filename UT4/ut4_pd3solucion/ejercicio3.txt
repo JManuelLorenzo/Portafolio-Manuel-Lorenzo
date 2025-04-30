@@ -1,0 +1,46 @@
+Lenguaje Natural: 
+Solucion Arbol:
+Si la raiz  es nula debe retonar 0. 
+Sino llamo a el método SumarClave con la raiz.
+Solucion Nodo:
+Cada Nodo tiene un contador igual a su clave, si tiene un hijoDerecho suma a su contador el resultado de hacer utilizar el metodo
+SumarClave con el hijoDerecho, si tiene un hijoIzquierdo hace lo mismo con este. Finalmente retorna su Contador, esto succede siempre 
+al final.
+Precondiciones:
+La raíz puede ser nula. 
+Los Contadores deben ser enteros.
+Debe estar ordenado de forma correcta. 
+Postcondicion:
+El árbol no debe ser modificado
+Debe devolver un valor entero, que sea la suma de todas las claves.
+
+PseudoCódigo:
+Arbol
+COMIENZO
+Funcion SumarClave
+    Si raiz = null ENTONCES
+        retonar null
+    Sino
+        retornar raiz.SumarClave
+    FinSi
+FinFuncion
+FIN
+
+PseudoCódigo
+Nodo
+COMIENZO
+Funcion SumarClave
+    contador <- clave
+    Si hijoDerecho < > null
+        contador <- contador + hijoDerecho.SumarClave
+    FinSi
+    Si hijoIzquierdo < > null
+        contador <- contador + hijoIzquierdo.SumarClave
+    FinSi
+    retornar Contador
+FinFuncion
+
+
+Analisis de Orden:
+El orden se trata de O(n), es lo mismo que en el ejercicio anterior, puesto que se requiere recorrer todos los nodos del árbol.
+Por lo tanto depende de N. 

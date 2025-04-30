@@ -1,0 +1,43 @@
+Lenguaje Natural:
+Arbol:
+Simplemente se retorna a el valor de la raiz, si la raiz es null se retorna 0. 
+Nodo:
+Para solucionar este problema, debo ir retornado el valor hacia atras, utilizando la recursion. El valor es 1 Si el
+nodoActual no tiene hijos, Sino se llama recursivamente a sus hijos Izquierda y derecha.
+Precondiciones:
+Puede tratarse de un árbol completo o no. 
+Puede tratarse de un árbol perfecto o no.  
+Postcondicion:
+Se debe retornar la cantidad de hojas de un árbol. 
+No se debe afectar el árbol de ninguna forma. 
+
+PseudoCódigo método Arbol:
+COMIENZO
+Funcion Arbol
+    Si raiz = null Entonces
+        return 0
+    Sino
+        return raiz.ContarHojas
+    FinSi
+FIN
+
+PseudoCódigo método Nodo:
+COMIENZO
+Funcion Nodo
+    Contador <- 0
+    SI hijoDerecho = null y hijoIzquierdo = null ENTONCES //Entra al final de la hoja. 
+        return  1 //O(1)
+    FinSi
+    SI hijoDerecho < > null Entonces // Siempre o casi siempre.
+        Contador <- Contador + hijoDerecho.ContarHojas //O(1)
+    FinSi
+     SI hijoIzquierdo < > null Entonces// Siempre o casi siempre.
+        Contador <- Contador + hijoIzquierdo.ContarHojas //O(1)
+    FinSi
+    return Contador;
+FinFuncion
+FIN
+Orden del códgio
+El orden de este código se trata de O(N) ya que se necesita correr cada nodo del árbol para poder acceder a la cantidad de Hojas. 
+O podemos decir que O(T * O(1)) O(3) en el peor de los casos o sea O(1). Siendo T la cantidad de veces que entra, que es N. Por lo tanto
+O(N).
