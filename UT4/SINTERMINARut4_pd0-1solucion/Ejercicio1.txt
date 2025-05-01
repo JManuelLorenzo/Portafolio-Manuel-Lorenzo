@@ -1,0 +1,67 @@
+
+Mi idea para solucionar este problema, era inicialmente utilizar el atributo clave del nodo
+y  su atributo etiqueta, la etiqueta va a ser una letra o una operacion.
+En este problema decidi utilizar una cola para poder recorrer el árbol y ir obtienendo los valores
+correspondientes a cada lugar. a  Asumo que todas las operaciones tiene 2 hijos.
+
+
+
+Precondiciones: 
+Los valores concretos para ser cargados, deben estar en una cola. 
+No debe haber más valores que variables, ni menos, siempre la misma cantidad en la cola.
+Postcondicion:
+El orden por el cual lee las variables es de Izquierda a Derecha.
+Si no hay raiz, entonces el resultado es 0.
+Si hay una variable cambiarla en base a la cola.
+Si hay una constante dejarla como esta en el árbol. 
+Se lee primero izquierda y luego derecha. Usando PostOrden.
+
+
+PseudoCódigo:
+Arbol
+Funcion Aritmetica( cola )
+    Si raiz = null ENTONCES
+        return 0
+    Sino
+        return raiz.Aritmetica(cola)
+    FinSi
+FIN
+
+PseudoCódigo 
+Nodo:
+Funcion Aritmetica (cola)
+    contador <- 0
+    hijoDerechoValue <- 0
+    hijoIzquierdoValue <- 0
+    Si etiqueta es un numero Entonces
+        contador <- etiqueta
+        return contador
+    FinSi
+    Si etiqueta  es una letra  Entonces
+        contador <- cola.dequeue()
+        return contador
+    Sino
+        Si hijoIzquierdo <> null  ENTONCES
+            hijoIzquierdoValue <- hijoIzquierdo.Aritmetica(cola)
+        FinSi
+
+        Si hijoDerecho <> null Entonces
+            hijoDerechoValue <- hijoDerecho.Aritmetica(cola)
+        FinSi
+
+        si etiqueta es '+' Entonces
+             retorna contador <- contador + hijoIzquierdoValue + hijoDerechoValue
+        FinSi
+        si etiqueta = '*' Entonces
+            retorna contador <- contador + hijoIzquierdoValue * hijoDerechoValue
+        FinSi
+        si etiqueta = '/' Entonces
+            retorna contador <- contador + hijoIzquierdoValue / hijoDerechoValue
+        FinSi
+        Si etiqueta = "-" Entonces
+             retorna contador <- contador + hijoIzquierdoValue - hijoDerechoValue
+        FinSi
+    FinSi
+
+
+

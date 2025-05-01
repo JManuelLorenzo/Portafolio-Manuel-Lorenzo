@@ -1,0 +1,93 @@
+Lenguaje Natural:
+
+Porque sé que se trata de una notación de tipo prefija, me conviene utilizar una cola para recorrer los elementos dados,
+el algoritmo va a solcitar una lista de strings como párametros y debe devolver un árbol. 
+Para esto voy a iterar toda la lista e ir almacenandola en una cola, utilizando queue, y luego voy a ir sacandolos
+con dequeue. 
+
+Esto luego se van a ir utilizando como nodos, la es etiqueta es igual al simbolo y la clave igual a 0.
+
+Al inicio voy a tomar como raíz al primer elemento, que como es prefija tiene que ser una operacion. Luego saco el siguiente y lo pongo 
+a la izquierda del nodo nodoActual y luego voy a la derecha. Esto se condiciona únicamente si la etiqueta actual es una "operacion".
+
+
+
+Precondiciones: 
+Se debe introducir una lista de strings como parametro.
+Asumo que la lista de strings no tiene espacio entre medio de las letras. 
+El árbol va a ser creado desde cero.
+Se debe dar la cantidad correctas de operaciones  y numeros para los nodos.
+Postcondicion:
+Se debe devolver un árbol que tenga la expresion dada como parametro creada adentro de este. 
+
+
+nodoEntrada es el parametro. 
+nodoActual es el nodo actual
+PseudoCódigo de mi metodo insertar de mi clase Nodo:
+COMIENZO
+Si hijoIzquierdo < > null Entonces
+    Si hijoIzquierdo es una operacion Entonces
+        hijoIzquierdo.insertar(nodoEntrada)
+    FinSi
+Sino
+    hijoIzquierdo <- nodoEntrada
+    return true
+FinSi
+Si hijoDerecho < > null Entonces
+    Si hijoDerecho es un operacion Entonces
+        hijoDerecho.insertar(nodoEntrada)
+    FinSi
+Sino
+    hijoDerecho <- nodoEntrada
+    return true
+FinSi
+return false
+FIN
+
+COMIENZO
+listaString <- listaString  de parametro
+PseudoCódigo:
+COMIENZO
+arbol <- nuevo arbol()
+cola <- nueva cola()
+i <- 0
+Mientras que i < listaString longitud hacer
+    cola enqueue listaString[i]
+    i <- i + 1
+FinMientras
+
+Mientras que !cola.isEmpty() Hacer 
+    etiqueta <- cola.dequeue
+    SI etiqueta es una operacion o letra  Entonces
+        NuevoNodo <- Nodo(0, etiqueta)
+    Sino
+        clave <- etiqueta pasada a tipo entero
+        NuevoNodo <- Nodo(clave, etiqueta)
+    FinSi
+    arbol insertar (NuevoNodo)
+FinMientras
+return arbol
+FIN
+
+
+Parte 2) 
+El código como tal no deberia tener ningun problema a excepcion si no se introducen los datos de forma
+correcta, en cualquier otro caso las. Van a estar todos de manera posicionada. Pero si no se utiliza la notacion prefija
+como a + b se puede romper todo el código. Además al seguir el orden de las operaciones, nuestras relaciones nos quedan equivalentes
+por lo tanto no tenemos problemas. 
+
+
+Parte 3)
+
+Ejemplo 1 (a + b) > + a 7
+
+             +
+            / \
+           a   7
+Ejemplo 2 ((a / b) > / a b         
+             /
+            / \
+           a   b
+
+Ejemplo 1:
+Lo enqueue en una cola, estableciendo 
