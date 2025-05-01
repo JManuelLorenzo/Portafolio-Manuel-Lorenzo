@@ -1,0 +1,56 @@
+Problema de contar la cantidad de hojas de un árbol:
+Lenguaje natural:
+Razonando este problema a través de  sus principios básicos y viendo otros problemas similares me di cuenta que era muy similar a el problema 
+de calcular la altura de un árbol. Simplmente hay que cambiar como se suman y cuales son las condiciones de los factores iniciales.
+Debe haber una condicion al inicio que Simplemente check si no tiene ningun hijo, si esto es verdad, automaticamente retorna 1. 
+O sea se recorre el árbol con una funcion recursiva con un contador que comienzo en 0. Si su hijoizq existe, se llama a la funcion recursiva con el hijo,
+sumando su valor a el contador . Lo mismo para hijo Derecho, hasta el final. Retornando despues de los condicionales el contador.
+
+Precondiciones: 
+El arból puede tener la raíz vacia. 
+La raíz puede no tener hijos.
+El árbol puede ser arbitrariamente grande o pequeño.
+Puede ser cualquier tipo de árbol.
+
+Postcondicion:
+Se devuelve la cantidad de hojas de un árbol, es un entero. 
+El árbol no es modificado.
+
+
+Casos de Prueba:
+Cuando la raiz es vacia
+Cuando el árbol no es perfecto
+Cuando el árbol no es completo. 
+Cuando la raiz no tiene hijos. 
+
+PseudoCódigo: 
+
+Metodo Arbol:
+COMIENZO
+getHojas()
+    Si raiz = null Entonces
+        return 0
+    Sino
+        return raiz.getHojas()
+    FinSi
+Fin
+
+Método Nodo:
+
+getHojas()
+    contador <- 0
+    Si  hijoIzquierdo = null &&  hijoDerecho = null Entonces
+        return 1 // Si es una raiz
+    FinSi
+    Si hijoIzquierdo <> null Entonces
+        contador <- contador + hijoIzquierdo.getHojas // Caso de poder bajar por la izquierda
+    FinSi
+    Si hijoDerecho <> null Entonces
+        contador <- contador + hijoDerecho.getHojas // Caso de poder bajar por la derecha 
+    FinSi
+    return contador
+Fin
+
+Analisis de Orden:
+El orden de este algortimo siempre es O(n), este analisis surge de que hay que siempre
+recorrer todo el árbol para saber la cantidad de hojas que contiene. 

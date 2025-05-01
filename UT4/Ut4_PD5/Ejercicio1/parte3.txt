@@ -1,0 +1,55 @@
+Obtener la clave anterior a la dada. 
+Lenguaje natural:
+estoy seguro que se debe ir utilizando el llamar a el metodo del hijo de conseguir el dato. Mientras este hijo exista, si la
+clave de un hijo es la que buscamos, debemos devolver la clave de nuestro clave NodoActual.
+
+Precondiciones:
+El árbol debe ser de busqueda
+La raiz puede ser nula
+La clave puede no existir en el árbol. 
+Postcondicion:
+Se debe retornar un valor que indique ese valor. 
+No se debe modificar a el árbol de ninguna forma.
+
+Casos de prueba: 
+No existe la clave en el árbol.
+La clave se encuentra en la Izquierda.
+La clave se encuentra en la Derecha. 
+
+
+
+PseudoCódigo árbol:
+COMIENZO
+ClaveAnterior(claveBuscada)
+    si raiz = null Entonces
+        retornar 0
+    sino
+        retornar raiz.ClaveAnterior(claveBuscada)
+    FinSi
+FIN
+
+PseudoCódigo Nodo:
+COMIENZO
+ClaveAnterior(claveBuscada)
+    Si hijoIzquierdo < > null && claveNodoActual > claveBuscada Entonces
+        Si hijoIzquierdo getClave = claveBuscada Entonces
+            return claveNodoActual
+        Sino
+            return hijoIzquierdo.ClaveAnterior(claveBuscada)
+        FinSi
+    FinSi
+    Si hijoDerecho < > null && claveNodoActual < claveBuscada Entonces
+        Si hijoDerecho getClave = claveBuscada Entonces
+            return claveNodoActual
+        Sino
+            return hijoDerecho.ClaveAnterior(claveBuscada)
+        FinSi
+    FinSi
+    return null
+Fin
+
+
+Analisis de Complejidad:
+Bueno en el peor de los casos es es O(N) ya que seria como buscar un elemento en una lista enlazada
+y en el mejor casoo O(log n ) porque seria como el caso de la busqueda en un árbol ABB, pero no sabemos
+si esta balanceado como en un AVL. 

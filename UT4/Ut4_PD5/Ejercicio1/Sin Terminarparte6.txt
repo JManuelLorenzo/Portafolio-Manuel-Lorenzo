@@ -1,0 +1,55 @@
+Lenguaje Natural:
+Este problema lo logre relacionar rapidamente y entender la lógica con el problema de comparar las claves, la diferencia radica
+ en que aca no se trata una comparacion de igualacion, sino de simplmente fijarse que de que si el hijo hijoIzquierdo existe si 
+ tun valor igual o mayor a el nodo actual se retorna false y para el hijoDerecho si el valor del nodo Actual es igual o mayor que el
+ del hijo hijoDerecho. Esto para que no se rompa las propiedades del un ABB y el igual porque si hay dos elementos iguales nos ABB.
+ Utilce una  bandera llamada "flag" para reducir el recorrido si se encuentra en el lado izquierdo
+
+
+ Precondiciones:
+El árbol puede tener la raíz vacia. (No es un ABB entonces)
+El árbol puede ser AVL o no.
+Postcondicion:
+Se debe retornar un valor booleano que indique si es un ABB o no.
+No se debe modificar en absoluto al árbol.
+
+Casos de Prueba:
+raiz nula.
+Arbol AVL
+Arbol desbalanceados.
+Arbol con forma de "lista enlzada" Sin hijos izquierdo o derecho. 
+
+PseudoCódigo método del árbol:
+isABB()
+    SI raiz = null Entonces
+        return false
+    Sino
+        raiz.isABB(0,0)
+    Fin
+PseudoCódigo método del nodo:
+COMIENZO
+isABB(max, min)
+    Si max > nodoActual getClave Entonces
+        max <- nodoActual getClave
+    FinSi
+    si min < nodoActual getClave ENTONCES
+        min <- nodoActual getClave Entonces
+    FinSi
+    flag <- True // la bandera hace que si se detecta antes, no haya que recorrer el lado derecho del árbol. 
+    Si hijoIzquierdo < > null Entonces
+        Si hijoIzquierdo getClave >= nodoActual getClave &&  Entonces
+            flag <- false
+        Sino
+            return hijoIzquierdo.isABB(max, min)
+        FinSi
+    FinSi
+    Si hijoDerecho < > null && flag Entonces
+       Si hijoDerecho getClave <= nodoActual getClave Entonces
+            flag <- false
+        Sino
+            return hijoDerecho.isABB(max, min )
+        FinSi 
+    FinSi
+    return flag
+    FinFuncion
+Fin
