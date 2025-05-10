@@ -1,0 +1,1 @@
+Los valores de preorden, postorden e inorden son identicos a los hechos a mano.

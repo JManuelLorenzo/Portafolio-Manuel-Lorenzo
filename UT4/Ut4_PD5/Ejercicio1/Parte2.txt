@@ -35,7 +35,7 @@ COMIENZO
 ObtenerMayorClave()
     Si hijoDerecho <> null
         contador <- hijoDerecho.ObtenerMayorClave
-        si claveNodoActual =< contador Entonces
+        si claveNodoActual <= contador Entonces
             return contador
         sino
             return claveNodoActual
