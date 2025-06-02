@@ -1,0 +1,59 @@
+1)
+Para el árbol debe checkear que la raiz sea diferente de null, si es null, inserta el elemento
+como la raiz, sino llama el metodo insertar del nodo raiz con el parametro dado a el insertar del árbol. 
+
+Dependiendo del lenguaje de programación se implementaria de distintas formas, en java las comparaciónes se haria con CompareTo
+
+Para la raiz, se debe comprobar el patron con la etiqueta. , o sea el valor del nodo como tal.
+La solución seria, si comenzamos desde la raiz, comprobando si el hijoDerecho es distinto de null, si lo es 
+Entonces nos fijamos si su etiqueta es menor que nuestro dato actual, si esto se cumple. llamamos de manera recursiva
+a insertar con el hijoDerecho. Si el hijoDerecho es null, se establece que el hijoDerecho ahora es el nodo que esta establecido en el parametro. 
+
+Se realiza lo mismo para el hijoIzquierdo únicamente cambiando la comparación ahora nos fijamos si nuestro dato es más pequeno
+que el hijoIzquierdo, si el hijoIzquierdo es nulo y el hijoDerecho no nos sirve porque ya hay un valor ahi, nuestro
+valor queda insertado como hijoIzquierdo.
+
+2)
+Precondiciones:
+El árbol puede tener la raíz null.
+Los nodos tienen que tener una etiqueta que sea diferente de null. 
+El árbol tiene que cumplir con la interfaz dada, lo mismo con el nodo. 
+El nodo puede estar dentro del árbol y no va a causar problemas. No hay doble insercion!!!
+Postcondicion:
+El árbol no debe ser modificado a no ser que sea una insercion.
+Se debe insertar siguiendo el pátron del árbol binario. 
+
+
+3) 
+Método Arbol
+COMIENZO
+Insertar(nodo x )
+    SI raiz < > null ENTONCES
+        raiz.Insertar(x)  /
+    SINO
+        raiz = x // O(1)
+    FIN Si
+FIN 
+Método nodo
+nodoActual es el nodo donde se llama a el método
+COMIENZO
+Insertar(nodo x)
+    SI hijoDerecho < > null Entonces // lado derecho.  // O(Max(1,1 )) 
+        Si hijoDerecho etiqueta < nodoActual etiqueta Entonces
+            hijoDerecho.insertar(x) // O(1)
+        FinSi
+    SINO
+        hijoDerecho = x // O(1)
+    FinSi
+    SI hijoIzquierdo < > null Entonces // lado Izquierdo. // O(Max(1,1 ))
+        Si hijoIzquierdo etiqueta > nodoActual etiqueta Entonces
+            hijoIzquierdo.insertar(x) // O(1)
+        FinSi
+    SINO
+        hijoIzquierdo = x // O(1)
+    FinSi
+FIN
+    
+4) Basandome en el razonamiento, de que la cantidad de veces que puede bajar un árbol e insertar un elemento. 
+La cantidad de niveles de un árbol es log n, siendo n el tamaño. Por lo tanto la insercion  tiene O(log n ) otra forma de razonarlo
+es que por cada bajada de nivel se parte el árbol a la nivel. 

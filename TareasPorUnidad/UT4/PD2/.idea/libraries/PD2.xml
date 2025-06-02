@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="PD2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/claves1.zip!/" />
+      <root url="jar://$PROJECT_DIR$/claves3.zip!/" />
+      <root url="jar://$PROJECT_DIR$/claves2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Interfaces_TA2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/clavesYconsultaPrueba.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

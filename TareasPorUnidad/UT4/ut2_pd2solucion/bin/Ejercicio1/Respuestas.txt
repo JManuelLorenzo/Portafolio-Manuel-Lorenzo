@@ -1,0 +1,11 @@
+Respuesta:
+
+1) El caso base es de k = 0
+Si puedo. Porque siempre ira disminuyendo de valor. 
+2)
+el algoritmo siempre se tornara a cero, el algoritmo tiene un Orden de O(T*O(1))
+3)
+El algoritmo en java que diseñe retorna 0 si le introduce algun numero negativo.
+Porque la operacion no esta definida para estos.
+Estan los factoriales en el main. 
+factorial(4) = 24

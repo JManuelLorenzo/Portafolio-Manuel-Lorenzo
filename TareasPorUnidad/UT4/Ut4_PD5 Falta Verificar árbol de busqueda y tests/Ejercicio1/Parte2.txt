@@ -1,0 +1,50 @@
+Buscar la mayor clave en un árbol binario. 
+Lenguaje natural: Creo que la clave en este problema es ir recorriendo el árbol y e ir descendiendo, siempre guardando en un contador
+adicional que se va ir comparando con cada hijo en el decenso, lo que permite que podamos ir encontrando la clave de manera idonea. 
+Lo único que cambio de nuestra implementacion estandar es que agrego un nuevo método.
+
+Precondiciones:
+Los nodos pueden ser claves que no sean numeros.
+El árbol debe tener claves que no sean null.
+El árbol puede ser arbitrariamente largo.
+El árbol debe ser de busqueda lineal y estar bien organizdo. 
+Postcondicion:
+El árbol no debe ver afectado
+Se debe devolver únicamente un valor de clave. 
+
+
+Y Casos de Prueba:
+árboles desbalanceados
+Valores muy diferentes
+raiz vacia
+árbol balanceado
+
+
+PseudoCódigo del método del árbol:
+COMIENZO
+ObtenerMayorClave()
+    Si raiz = null Entonces
+        return 0
+    Sino
+        return raiz.ObtenerMayorClave
+    FinSi
+FIN
+
+PseudoCódigo del método del nodo:
+COMIENZO
+ObtenerMayorClave()
+    Si hijoDerecho <> null
+        contador <- hijoDerecho.ObtenerMayorClave
+        si claveNodoActual <= contador Entonces
+            return contador
+        sino
+            return claveNodoActual
+        FinSi
+    Sino
+        return claveNodoActual
+    FinSi
+FIN
+
+Analisis de Orden:
+El orden es O(n) porque en el peor caso, se trataria de una "lista enlazada" digamos, por lo que habria que recorrer todos los elementos
+esto sucede si el árbo no esta balanceado.

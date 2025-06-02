@@ -1,0 +1,46 @@
+Lenguaje Natural:
+Solucion para el árbol:
+Si la raíz del árbol es nula Entonces Simplemente retorno O. Porque sin importar el parametro no existe. 
+Sino retorno la raiz del árbol usando el método contarPorNivel usando el parametro del nivel asignado.
+
+Solucion para el Nodo:
+Lo que realizo en la función del nodo  es,  si el parametro  es 0 devuelvo 1, ir bajando por la Izquierda y derecha esto lo hago
+llamando a el hijoDerecho e Izquierdo con el parametro -1. Para que cuando se llegue a el nivel adecuado no se siga bajando, sino lo hacen 
+voy descendiendo  sumo ese valor a el contador, que voy a retornar a el final del todo. El contador comienza en 0. 
+
+Precondiciones: 
+La raíz puede ser nula. 
+Puede ser cualquier nivel que exista en el árbol. 
+Debe existir un parametro entero en la función.
+Postcondicion:
+Debe devolver la cantidad de elementos en un nivel. 
+No debe modificar  a el árbol.
+
+PseudoCódigo Método árbol: 
+COMIENZO
+Funcion contarPorNivel(k) 
+    Si raiz = null ENTONCES
+        return 0
+    Sino
+        return raiz.contarPorNivel(k)
+    FinSi
+FinFuncion
+FIN
+PseudoCódigo Método Nodo: 
+Funcion contarPorNivel(k)
+    contador <- 0
+    Si k = 0 Entonces
+        contador <- contador + 1
+        return contador // Para que no siga bajando. 
+    FinSi
+    Si hijoDerecho < > null Entonces
+       contador <- contador + hijoDerecho.contarPorNivel(k-1)
+    FinSi
+    Si hijoIzquierdo < > null Entonces
+        contador <- contador + hijoIzquierdo.contarPorNivel(k-1)
+    FinSi
+    retornar contador
+    Fin
+
+El Orden es O(N) puesto que se recorren los nodos hasta el nivel K por lo tanto se requiere recorrer en base a K. 
+No recorre por completo el árbol a menos que sea necesario. 

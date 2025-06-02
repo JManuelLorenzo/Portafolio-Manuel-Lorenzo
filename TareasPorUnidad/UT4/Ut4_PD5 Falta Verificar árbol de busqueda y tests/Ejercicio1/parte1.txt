@@ -1,0 +1,37 @@
+Buscar la menor clave en un árbol de busqueda lineal resulta sumamente sencillo ya que como el árbol ya esta ordenado, es facil suponer que el elemento
+más a la izquierda es el elemento más pequeño. Por lo tanto únicamente hay que descender por la izquierda hasta que haya más nada y devolver ese valor.
+
+Precondiciones:
+El árbol debe ser de busqueda
+El árbol puede estar vacio.
+Postcondicion:
+Se debe devolver la clave más pequeña del árbol.
+El árbol no debe ser modificado.
+
+
+En Casos de prueba:
+Raiz vacia
+Nodos con numeros negativos
+
+PseudoCódigo del metodo del árbol:
+COMIENZO
+ObtenerMenorClave()
+    Si raiz = null Entonces
+        retorna 0
+    Sino
+        retorna raiz.ObtenerMenorClave
+    FinSi
+FIN
+PseudoCódigo del metodo del elemento:
+COMIENZO
+ObtenerMenorClave
+    Si hijoIzquierdo < > nulo Entonces
+        return hijoIzquierdo.ObtenerMenorClave
+    sino
+        return claveNodoActual
+    FinSi
+FIN
+
+Orden:
+El orden es O(n) porque en el peor caso, se trataria de una "lista enlazada" digamos, por lo que habria que recorrer todos los elementos
+esto sucede si el árbo no esta balanceado.

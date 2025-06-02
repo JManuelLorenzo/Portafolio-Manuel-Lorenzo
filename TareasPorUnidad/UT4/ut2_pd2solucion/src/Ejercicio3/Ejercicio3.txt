@@ -1,0 +1,37 @@
+1)
+Lenguaje natural:
+funcionPotencia se llama la funcion.
+Llamemos a el numero que va ser elevado por el otro como a y el 
+exponente como b. 
+Comprobamos si b es igual a 0, si lo es devolvemos 1.
+Si B > 0 se cumple esta condicion deberiamos devolver la multplicacion de a
+pero multiplicada por funcio funcionPotencia utilizando a "a" como parametro y a 
+"b-1", De esa manera se cumple la recursion. Sino Se hace con B + 1. 
+
+Precondiciones:
+A y B deben ser enteros.
+B puede ser negativo o positivo
+El Valor de A puede ser tanto negativo como positvo.
+
+PostCondiciones: 
+Devuelve los valores de potencia de un numero elevado por otro.
+
+PseudoCódigo:
+INICIO
+funcionPotencia(entero a, entero b)
+    Si b = 0 ENTONCES
+        devuelve 1 //O(1)
+    FinSi
+    SI b > 0 ENTONCES
+        return a * funcionPotencia(a, b-1) // O(1)
+    SINO
+        return a * funcionPotencia(a, b+1) // O(1) 
+    FinSi
+FinFuncion
+FIN
+
+2)
+El orden de Ejecucion Es O(T* max(1,max(1,1))) siendo T la cantidad
+de veces que entras en la recursion. 
+
+3) La parte esta en el .java

@@ -1,0 +1,57 @@
+Problema de Listar todas las hojas cada una con su nivel.:
+Lenguaje natural:
+Razonando este problema a través de  sus principios básicos y viendo otros problemas similares me di cuenta que era muy similar a el problema 
+de calcular la altura de un árbol. Simplmente hay que cambiar como se suman y cuales son las condiciones de los factores iniciales.
+Debe haber una condicion al inicio que Simplemente check si no tiene ningun hijo, si esto es verdad, automaticamente retorna añade el elemento a la lista. 
+O sea se recorre el árbol con una funcion recursiva con un contador que comienzo en 0. Si su hijoizq existe, se llama a la funcion recursiva con el hijo,
+sumando su valor a k . Lo mismo para hijo Derecho, hasta el final. Retornando la lista en si misma. despues de los condicionales el contador.
+
+Precondiciones: 
+El arból puede tener la raíz vacia. 
+La raíz puede no tener hijos.
+El árbol puede ser arbitrariamente grande o pequeño.
+Puede ser cualquier tipo de árbol.
+
+Postcondicion:
+Se devuelve una lista de nodos, de todas las hojas de un árbol, con clave siendo el dato y la etiqueta siendo el nivel.
+Se pueden repetir etiquetas en la lista. Cuidado! 
+El árbol no es modificado.
+
+
+Casos de Prueba:
+Cuando la raiz es vacia
+Cuando el árbol no es perfecto
+Cuando el árbol no es completo. 
+Cuando la raiz no tiene hijos. 
+
+PseudoCódigo: 
+
+Metodo Arbol:
+COMIENZO
+getHojas(lista)
+    Si raiz = null Entonces
+        return 0
+    Sino
+        return raiz.getHojas(0, lista)
+    FinSi
+Fin
+
+Método Nodo:
+
+getHojas(k, lista)
+    Si  hijoIzquierdo = null &&  hijoDerecho = null Entonces
+        NuevoNodo <- nodo(clave, k) // Si es una raiz
+        lista.insertar(NuevoNodo)
+    FinSi
+    Si hijoIzquierdo <> null Entonces
+        hijoIzquierdo.getHojas(k + 1) // Caso de poder bajar por la izquierda
+    FinSi
+    Si hijoDerecho <> null Entonces
+        hijoDerecho.getHojas(k + 1) // Caso de poder bajar por la derecha 
+    FinSi
+    return lista
+Fin
+
+Analisis de Orden:
+El orden de este algortimo siempre es O(n), este analisis surge de que hay que siempre
+recorrer todo el árbol para saber la cantidad de hojas que contiene. 

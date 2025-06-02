@@ -1,0 +1,5 @@
+En la letra dice el archivo "clase.txt" pero ese archivo no existe, asumo que es el archivo claves1 porque es el que cumple la parte D del 3.
+Arbol creado en Ejercicio3.java.
+resultados.txt corresponde a la creacion del Archivo con los datos adentro.
+la busqueda fue Hecha en consola en Ejercicio 3.java. Siendo las respuestas true, false, false, false. 
+D)La respuesta a la parte D es 797.

@@ -1,0 +1,21 @@
+K es el valor que sera ingresado como parametro. 
+Precondiciones:
+K puede ser negativo o Positivo o cero. 
+K puede ser arbitrariamente grande. 
+PostCondiciones:
+Debe devolver exactamente la misma cantidad de veces multiplicada
+COMIENZO
+Funcion factorial( k )
+    SI  k = 0  ENTONCES // Caso Base //O(1)
+        Retorna k+1 // O(1)
+    FinSi
+    SI k > 0 ENTONCES
+        Retorna k * (factorial(k - 1)) O(1)
+    SINO
+        return 0
+    FinSi
+    
+FIN
+-----
+Respuesta:
+el algoritmo siempre se tornara a cero, el algoritmo tiene un Orden de O(T*O(1))
