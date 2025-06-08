@@ -26,13 +26,14 @@ public class TNodoTrie implements INodoTrie {
             }
             nodo = nodo.hijos[indice];
         }
-        
-            for (String string : temp) {
-                nodo.paginas.add(string);
-            }
-            paginas.removeFirst();
+       for (int i = 1; i < temp.length; i++) {
+        String pagina = temp[i];
+        if (!nodo.paginas.contains(pagina)) {
+        nodo.paginas.add(pagina);
+         }
+}
+
         nodo.esPalabra = true;
-        
     }
 
     private void imprimir(String s, TNodoTrie nodo) {
@@ -99,6 +100,25 @@ public int buscar(String s) {
     }
 
     return nodo.esPalabra ? comparaciones : 0;
+}
+
+public void imprimirIndice(String prefijo) {
+    if (esPalabra) {
+        // Imprimir palabra + páginas en la misma línea
+        System.out.print(prefijo + ": ");
+        for (String pagina : paginas) {
+            System.out.print(pagina + " ");
+        }
+        System.out.println(); // salto de línea
+    }
+
+    // Recorrer los hijos en orden alfabético
+    for (int i = 0; i < hijos.length; i++) {
+        if (hijos[i] != null) {
+            char letra = (char) ('a' + i);
+            hijos[i].imprimirIndice(prefijo + letra);
+        }
+    }
 }
 
 }
