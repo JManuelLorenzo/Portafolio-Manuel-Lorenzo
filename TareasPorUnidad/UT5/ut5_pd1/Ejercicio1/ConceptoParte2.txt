@@ -1,0 +1,36 @@
+# Conceptos en Lenguaje Natural para los Casos de Prueba
+
+## Insertar
+La función `Insertar` debe permitir agregar correctamente un nuevo nodo al árbol.
+Los casos de prueba deben verificar:
+
+- Que al insertar en un árbol vacío con `etiquetaPadre` vacío, el nodo se convierte en la raíz.
+- Que no se permite insertar una nueva raíz si ya existe una.
+- Que no se inserta nada si `unaEtiqueta` es `null`.
+- Que se puede insertar correctamente un hijo si se encuentra el padre.
+- Que no se inserta nada si el padre especificado no existe en el árbol.
+
+El objetivo es asegurar que la función respete la lógica jerárquica y no modifique la estructura de forma incorrecta.
+
+## Buscar
+La función `Buscar` debe permitir localizar un nodo del árbol según su etiqueta.
+Los casos de prueba deben validar:
+
+- Que si la etiqueta buscada es `null`, se devuelve `null`.
+- Que se puede encontrar correctamente la raíz si coincide con la etiqueta.
+- Que se puede encontrar un nodo en niveles más profundos del árbol.
+- Que se devuelve `null` si la etiqueta no existe en el árbol.
+
+Estos casos verifican que la búsqueda se realiza correctamente en preorden y que no se modifica la estructura.
+
+## listarIndentado
+La función `listarIndentado` debe generar un texto que representa visualmente la jerarquía del árbol,
+mostrando cada nivel con sangrías. Los casos de prueba deben comprobar:
+
+- Que en un árbol vacío se devuelve una cadena vacía.
+- Que si hay solo un nodo (la raíz), se lista solo esa etiqueta.
+- Que si hay varios niveles, cada nivel se representa con sangrías proporcionales.
+- Que los nodos hijos se muestran debajo del padre en orden de inserción.
+
+Esto asegura que la estructura del árbol pueda visualizarse correctamente.
+"""

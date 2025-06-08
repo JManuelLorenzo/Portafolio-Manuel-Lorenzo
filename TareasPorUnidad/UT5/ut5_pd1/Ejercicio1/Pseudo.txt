@@ -1,0 +1,62 @@
+
+# PseudoCódigo Insertar(unaEtiqueta, etiquetaPadre)
+
+## Lenguaje Natural:
+La función Insertar permite agregar una unidad académica (nodo) a un árbol genérico.
+Primero se verifica si la etiqueta a insertar es nula, en cuyo caso no se inserta nada.
+Luego se revisa si el árbol está vacío.
+- Si está vacío y la etiqueta del padre también es vacía, se crea un nuevo nodo y se lo asigna como raíz.
+- Si está vacío pero se indica un padre no vacío, no se puede insertar y se retorna falso.
+
+Si el árbol no está vacío y se intenta insertar como nueva raíz, tampoco se permite.
+En los demás casos, se busca el nodo correspondiente al padre.
+Si se encuentra, se crea el nuevo nodo y se lo agrega como hijo al final de la lista de hijos del padre.
+Si no se encuentra el padre, no se realiza la inserción.
+
+## Precondiciones:
+- La etiqueta a insertar no debe ser nula.
+- El árbol debe tener referencias válidas y permitir acceso a la raíz y a sus nodos.
+- Si el árbol está vacío, solo se puede insertar una nueva raíz si etiquetaPadre == "".
+
+## Postcondiciones:
+- Se agrega correctamente un nuevo nodo al árbol si las condiciones se cumplen.
+- Si no se puede realizar la inserción, se retorna false.
+- La estructura del árbol se mantiene consistente.
+
+## Solución en PseudoCódigo:
+Algoritmo Insertar(unaEtiqueta, etiquetaPadre) → booleano
+Inicio
+    // Validación básica
+    Si unaEtiqueta = null Entonces
+        Retornar false
+    FinSi
+
+    // Caso especial: el árbol está vacío
+    Si Raíz = null Entonces
+        Si etiquetaPadre es vacía Entonces
+            Raíz ← nuevo Nodo(unaEtiqueta)
+            Retornar true
+        Sino
+            // No se puede insertar porque se especificó un padre que no existe
+            Retornar false
+        FinSi
+    FinSi
+
+    // Si se quiere insertar como nueva raíz, pero ya hay una
+    Si etiquetaPadre es vacía Entonces
+        Retornar false
+    FinSi
+
+    // Buscar el nodo padre
+    NodoPadre ← Buscar(Raíz, etiquetaPadre)
+
+    Si NodoPadre = null Entonces
+        Retornar false // No se encontró el padre
+    FinSi
+
+    // Insertar nuevo nodo como hijo del padre encontrado
+    nuevoNodo ← nuevo Nodo(unaEtiqueta)
+    AgregarHijo(NodoPadre, nuevoNodo)
+
+    Retornar true
+Fin
