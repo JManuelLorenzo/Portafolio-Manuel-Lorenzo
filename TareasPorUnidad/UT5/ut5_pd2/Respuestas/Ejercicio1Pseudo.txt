@@ -1,0 +1,54 @@
+# PseudoCódigo InsertarPalabraEnTrie(palabra, pagina)
+
+## Lenguaje Natural:
+La función InsertarPalabraEnTrie agrega una palabra letra por letra en la estructura de un trie.  
+Se parte desde la raíz y se recorre cada letra de la palabra:
+- Para cada letra, se calcula su índice correspondiente (por ejemplo, 'a' → 0, 'b' → 1, etc.).
+- Si el hijo correspondiente no existe, se crea un nuevo nodo en esa posición.
+- Se avanza al siguiente nodo hasta recorrer toda la palabra.
+
+Al llegar al nodo correspondiente a la última letra:
+- Se marca el nodo como final de palabra.
+- Se agrega la página a un conjunto de páginas que pertenece a ese nodo terminal.
+
+Este procedimiento se repite para cada palabra y cada una de las páginas en que aparece.
+
+## Precondiciones:
+- La palabra no debe ser nula ni vacía.
+- La página debe ser un número entero positivo.
+- La estructura del trie ya debe estar inicializada, con una raíz válida.
+- Las letras de la palabra están en minúsculas y pertenecen al alfabeto a..z.
+
+## Postcondiciones:
+- La palabra queda insertada correctamente en el trie.
+- La página se agrega al conjunto de páginas del nodo terminal correspondiente.
+- Si ya existía, la página no se repite gracias al uso de un conjunto (set).
+- La estructura del trie permanece válida y ordenada.
+
+## Solución en PseudoCódigo:
+Algoritmo InsertarPalabraEnTrie(palabra, pagina)
+Inicio
+    Si palabra = null O palabra = "" Entonces
+        Retornar // No se inserta nada
+    FinSi
+
+    nodoActual ← raíz
+
+    Para i desde 0 hasta Longitud(palabra) - 1 Hacer
+        letra ← palabra[i]
+        indice ← CódigoASCII(letra) - CódigoASCII('a')
+
+        Si nodoActual.hijos[indice] = null Entonces
+            nodoActual.hijos[indice] ← nuevo NodoTrie()
+        FinSi
+
+        nodoActual ← nodoActual.hijos[indice]
+    FinPara
+
+    nodoActual.esPalabra ← verdadero
+    Agregar pagina al conjunto nodoActual.paginas
+Fin
+
+
+## Orden
+Mi implementacion tiene orden de O(N)

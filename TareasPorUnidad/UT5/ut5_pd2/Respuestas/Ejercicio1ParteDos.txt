@@ -1,0 +1,16 @@
+Compartes la misma opinion:
+ ¿Cuántas comparaciones realiza la búsqueda de "Programa"?
+
+8 comparaciones - Palabra encontrada con valores: [22, 67]
+ ¿Cuántas comparaciones realiza la búsqueda de "Proselitismo"?
+
+4 comparaciones - Palabra no encontrada
+3. ¿Cuántas comparaciones para insertar "cazadores"?
+
+9 comparaciones
+¿Cuál es la altura del árbol trie?
+
+12 niveles
+¿Cuál es el tamaño del trie?
+
+45 nodos (excluyendo la raíz)

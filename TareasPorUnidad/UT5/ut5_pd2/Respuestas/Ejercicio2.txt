@@ -1,0 +1,54 @@
+Lenguaje Natural:
+
+La función BuscarPaginasDePalabra recorre un trie para determinar si una palabra está presente.
+Comienza desde la raíz y, para cada letra de la palabra, avanza al hijo correspondiente:
+
+    Si en algún punto el nodo hijo no existe, se concluye que la palabra no está en el libro.
+
+    Si se logra llegar al último carácter, se verifica si el nodo representa el fin de una palabra.
+
+        Si es así, se retorna el conjunto de páginas asociado.
+
+        Si no, también se concluye que la palabra no está.
+
+Precondiciones:
+
+    La palabra no debe ser nula ni vacía.
+
+    La estructura del trie debe estar correctamente construida con una raíz válida.
+
+    El trie debe tener correctamente almacenadas las palabras y sus páginas.
+
+Postcondiciones:
+
+    Si la palabra existe en el trie, se retorna el conjunto de páginas donde aparece.
+
+    Si la palabra no existe, se informa claramente que no se encuentra en el libro.
+
+Solución en PseudoCódigo:
+
+Algoritmo BuscarPaginasDePalabra(palabra) → conjunto de páginas o mensaje
+Inicio
+    Si palabra = null O palabra = "" Entonces
+        Retornar "Palabra inválida"
+    FinSi
+
+    nodoActual ← raíz
+
+    Para i desde 0 hasta Longitud(palabra) - 1 Hacer
+        letra ← palabra[i]
+        indice ← CódigoASCII(letra) - CódigoASCII('a')
+
+        Si nodoActual.hijos[indice] = null Entonces
+            Retornar null
+        FinSi
+
+        nodoActual ← nodoActual.hijos[indice]
+    FinPara
+
+    Si nodoActual.esPalabra = verdadero Entonces
+        Retornar nodoActual.paginas
+    Sino
+        Retornar null
+    FinSi
+Fin
