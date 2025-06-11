@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "pd3.Main",
+            "projectName": "ut6_pd3"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio1",
+            "request": "launch",
+            "mainClass": "pd3.ejercicio1.Ejercicio1",
+            "projectName": "ut6_pd3"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2",
+            "request": "launch",
+            "mainClass": "pd3.ejercicio2.Ejercicio2",
+            "projectName": "ut6_pd3"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio4",
+            "request": "launch",
+            "mainClass": "pd3.ejercicio4.Ejercicio4",
+            "projectName": "ut6_pd3",
+            "args": "src/main/java/pd3/ejercicio4/leer.txt 4"
+        }
+    ]
+}
