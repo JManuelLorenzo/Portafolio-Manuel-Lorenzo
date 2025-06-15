@@ -77,22 +77,19 @@ public class TNodoTrie implements INodoTrie {
     }
 
     public void predecir(String prefijo, LinkedList<String> palabras) {
-   
-        if (esPalabra) {
-            palabras.add(prefijo);
-        }
-        
-        if (!prefijo.isEmpty()) {
-            Character c = prefijo.charAt(0);
-            prefijo = prefijo.substring(1);
-            if(mapa.get(c) != null){
-            mapa.get(c).predecir(prefijo, palabras);
+        TNodoTrie nodo = this;
+        String originalPrefijo = prefijo;
+        // Buscar el nodo correspondiente al prefijo
+        for (int i = 0; i < prefijo.length(); i++) {
+            nodo = nodo.mapa.get(prefijo.charAt(i));
+            if (nodo == null) {
+                return; // No hay palabras con ese prefijo
             }
         }
-        else{
-            auxPredecir(prefijo, palabras, this);
-        }
-        }
+        // Desde el nodo encontrado, recolectar todas las palabras
+        nodo.auxPredecir(originalPrefijo, palabras, nodo);
+    }
+
     private void auxPredecir(String prefijo, LinkedList<String> palabras, TNodoTrie nodo) {
        if(nodo.esPalabra){
         palabras.add(prefijo);

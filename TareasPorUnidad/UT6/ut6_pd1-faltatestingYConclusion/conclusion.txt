@@ -1,0 +1,5 @@
+En mis tests de medible me dio que:
+Medicion: Predecir en TrieHash - Consumo de memoria=6881304 Bytes , tiempo de ejecución =22459250 nanosecs
+Medicion: Predecir en TrieLista - Consumo de memoria=24610616 Bytes , tiempo de ejecución =25921167 nanosec
+TrieHash es  más eficiente tanto en consumo de memoria como en tiempo de ejecución para  la operación de predicción. 
+Esto confirma que el uso de HashMap es preferible para este tipo de estructuras cuando se prioriza el rendimiento.
