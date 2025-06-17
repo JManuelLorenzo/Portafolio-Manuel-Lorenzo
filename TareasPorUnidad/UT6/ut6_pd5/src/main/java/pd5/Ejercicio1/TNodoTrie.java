@@ -1,11 +1,13 @@
-package pd5;
+package pd5.Ejercicio1;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
@@ -14,11 +16,13 @@ public class TNodoTrie implements INodoTrie {
 
     private   TreeMap<Character, TNodoTrie> mapa;
     private boolean esPalabra;
+    private ArrayList<Integer> lista;
     
 
     public TNodoTrie() {
         mapa = new TreeMap<>();
         esPalabra = false;
+        lista = new ArrayList<>();
     }
 
     @Override
@@ -26,9 +30,9 @@ public class TNodoTrie implements INodoTrie {
         TNodoTrie nodo = this;
         if (unaPalabra.isEmpty()) {
             nodo.esPalabra = true;
+          
             return;
         } 
-        
         
         char caracter = unaPalabra.charAt(0);
             if (mapa.get(caracter) == null) {
@@ -44,9 +48,28 @@ public class TNodoTrie implements INodoTrie {
             }
        
         }
+    public void insertarPosicion(String unaPalabra, int posicion) {
+        this.lista.add(posicion);
+        if (unaPalabra.isEmpty()) {
+            this.esPalabra = true;
+            return;
+        }
+        char caracter = unaPalabra.charAt(0);
+        TNodoTrie nodoHijo = this.mapa.get(caracter);
+        if (nodoHijo == null) {
+            nodoHijo = new TNodoTrie();
+            this.mapa.put(caracter, nodoHijo);
+        }
+        nodoHijo.insertarPosicion(unaPalabra.substring(1), posicion + 1); // es el siguiente posicion en el texto.
+    }
 
+       
+        
     private void imprimir(String s, TNodoTrie nodo) {
         if (nodo != null) {
+            if (lista != null) {
+                System.out.println(lista);
+            }
             if (nodo.esPalabra) {
                 System.out.println(s);
             }
@@ -56,10 +79,26 @@ public class TNodoTrie implements INodoTrie {
             }
         }
     }
+    /*  private void Patron(String s, TNodoTrie nodo, Queue queue) {
+
+        if (nodo != null) {
+            if (queue.is) {
+                System.out.println(s);
+            }
+            Set<Entry<Character, TNodoTrie>> valores = nodo.mapa.entrySet();
+            for (Entry<Character,TNodoTrie> entry : valores) {
+                entry.getValue().imprimir(s + entry.getKey(), entry.getValue() );
+            }
+        }
+    } */
+  
 
     @Override
     public void imprimir() {
         imprimir("", this);
+    }
+    public void imprimir (String patron, LinkedList<String> palabras){
+        
     }
 
     public TNodoTrie buscarNodoTrie(String s) {

@@ -1,4 +1,4 @@
-package pd5;
+package pd5.Ejercicio1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

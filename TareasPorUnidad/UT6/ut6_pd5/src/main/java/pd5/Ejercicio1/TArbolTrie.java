@@ -1,4 +1,4 @@
-package pd5;
+package pd5.Ejercicio1;
 
 import java.util.LinkedList;
 
@@ -16,12 +16,29 @@ public class TArbolTrie implements IArbolTrie {
         }
         raiz.insertar(palabra);
     }
+public void insertarPosicion(String palabra, Integer entero) {
+        if (palabra == null || palabra.isEmpty()) {
+            return;
+        }
+        if (raiz == null) {
+            raiz = new TNodoTrie();
+        }
+        raiz.insertarPosicion(palabra, entero); // El entero es la posicion de la palabra en el texto, se puede implemntar con un contador.
+    }
+
 
     @Override
     public void imprimir() {
         if (raiz != null) {
             raiz.imprimir();
         }
+    }
+    public LinkedList<String> imprimir(String patron){
+        LinkedList<String> palabras = new LinkedList<>();
+        if(raiz != null){
+            raiz.imprimir(patron, palabras);
+        }
+        return palabras;
     }
 
     @Override

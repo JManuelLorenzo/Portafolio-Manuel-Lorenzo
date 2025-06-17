@@ -1,6 +1,4 @@
-package pd5;
-
-
+package pd5.Ejercicio3;
 import java.util.LinkedList;
 
 /*
@@ -13,13 +11,10 @@ import java.util.LinkedList;
  *
  * @author ernesto
  */
-public interface IArbolTrie {
+public interface IArbolTrieTelefonos {
 
-    void imprimir();
-    int buscar(String palabra);
+    LinkedList<TAbonado> buscarTelefonos(String pais, String area);
 
-    void insertar(String palabra);
-
-    LinkedList<String> predecir(String prefijo);
+    void insertar(TAbonado unAbonado);
     
 }
