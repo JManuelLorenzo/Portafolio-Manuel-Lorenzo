@@ -49,12 +49,10 @@ public class TNodoTrieTelefonos implements INodoTrieTelefonos {
                 TNodoTrieTelefonos nodoHijo = new TNodoTrieTelefonos();
                 mapa.put(caracter, nodoHijo);
                 nodoHijo.insertarAux(tel.substring(1));
-                
             }
             else{
                 nodo = mapa.get(caracter);
                 nodo.insertarAux(tel.substring(1));
-
     }
 
     
