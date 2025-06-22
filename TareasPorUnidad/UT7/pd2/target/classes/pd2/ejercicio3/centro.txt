@@ -1,0 +1,66 @@
+public Double obtenerExcentricidad(Comparable etiquetaVertice) {
+    Object[] etiquetas = getEtiquetasOrdenado();
+    Double[][] floyd = floyd(etiquetas);
+
+    int idx = -1;
+    for (int i = 0; i < etiquetas.length; i++) {
+        if (etiquetas[i].equals(etiquetaVertice)) {
+            idx = i;
+            break;
+        }
+    }
+
+    if (idx == -1) return -1.0; // vértice no existe
+
+    double max = 0;
+
+    
+    for (int j = 0; j < floyd.length; j++) {
+        if (idx == j) continue; // saltar diagonal
+        
+        double valor = floyd[idx][j];
+        
+       
+        if (valor == Double.MAX_VALUE) {
+            return -1.0;
+        }
+        
+        
+        if (valor > max) {
+            max = valor;
+        }
+    }
+
+    return max;
+}
+
+
+
+    public Comparable centroDelGrafo() {
+        Object[] etiquetas = getEtiquetasOrdenado();
+        Double[][] floyd = floyd(etiquetas);
+        Double min = Double.MAX_VALUE;
+        Comparable etiquetaCentro = null;
+
+        for (int i = 0; i < etiquetas.length; i++) {
+            Double excentricidad = 0.0;
+            boolean desconectado = false;
+            for (int j = 0; j < etiquetas.length; j++) {
+                if (i == j) continue;
+                Double valor = floyd[i][j];
+                if (valor.equals(Double.MAX_VALUE)) {
+                    desconectado = true;
+                    break;
+                }
+                if (valor > excentricidad) {
+                    excentricidad = valor;
+                }
+            }
+            if (!desconectado && excentricidad < min) {
+                min = excentricidad;
+                etiquetaCentro = (Comparable) etiquetas[i];
+            }
+        }
+
+        return etiquetaCentro;
+    }

@@ -1,0 +1,15 @@
+public Double[][] floyd(Object[] etiquetas) {
+    Double[][] C = UtilGrafos.obtenerMatrizCostos(vertices);
+    Double[][] A = new Double[C.length][C.length];
+    int n = C.length;
+    for (int i = 0; i < n; i++)
+        System.arraycopy(C[i], 0, A[i], 0, n);
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                if (A[i][k] != Double.MAX_VALUE && A[k][j] != Double.MAX_VALUE) {
+                    double nuevoCosto = A[i][k] + A[k][j];
+                    if (nuevoCosto < A[i][j])
+                        A[i][j] = nuevoCosto;
+                }
+    return A;
