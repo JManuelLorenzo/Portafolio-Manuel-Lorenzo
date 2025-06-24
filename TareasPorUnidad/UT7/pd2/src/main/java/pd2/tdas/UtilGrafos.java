@@ -2,11 +2,14 @@ package pd2.tdas;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 
 public class UtilGrafos {
 
@@ -26,7 +29,8 @@ public class UtilGrafos {
 
         int i = 0;
 
-        Set<Comparable> etiquetasVertices = vertices.keySet();
+        ArrayList<Comparable> etiquetasVertices = new ArrayList<>(vertices.keySet());
+        Collections.sort(etiquetasVertices);
         Object[] VerticesIArr = etiquetasVertices.toArray();
         Object[] VerticesJArr = etiquetasVertices.toArray();
 
@@ -48,36 +52,6 @@ public class UtilGrafos {
         }
         return matrizCostos;
     }
-    public static Double[][] obtenerMatrizCostos(Map<Comparable, IVertice> vertices, Object[] etiquetasOrdenadas) {
-    int cantidadVertices = vertices.size();
-    Double[][] matrizCostos = new Double[cantidadVertices][cantidadVertices];
-
-    // Inicializar matriz
-    for (int i = 0; i < matrizCostos.length; i++) {
-        for (int j = 0; j < matrizCostos.length; j++) {
-            if (i == j) {
-                matrizCostos[i][j] = 0.0;
-            } else {
-                matrizCostos[i][j] = Double.MAX_VALUE;
-            }
-        }
-    }
-
-    // Usar las etiquetas en el orden correcto
-    for (int i = 0; i < cantidadVertices; i++) {
-        for (int j = 0; j < cantidadVertices; j++) {
-            if (i != j) {
-                IVertice verticeI = vertices.get(etiquetasOrdenadas[i]);
-                IVertice verticeJ = vertices.get(etiquetasOrdenadas[j]);
-                
-                Double costoAdyacencia = verticeI.obtenerCostoAdyacencia(verticeJ);
-                matrizCostos[i][j] = costoAdyacencia;
-            }
-        }
-    }
-    
-    return matrizCostos;
-}
 
     public static void imprimirMatriz(Comparable[][] matriz, Map<Comparable, IVertice> vertices) {
         Object[] etiquetas = vertices.keySet().toArray();
@@ -128,7 +102,10 @@ public class UtilGrafos {
     public static void imprimirMatrizMejorado(Comparable[][] matriz, Map<Comparable, IVertice> vertices, String titulo) {
         if (vertices != null && matriz.length == vertices.keySet().size()) {
 
-            Comparable[] etiquetas = vertices.keySet().toArray(new Comparable[vertices.keySet().size()]);
+           List<Comparable> etiquetasList = new ArrayList<>(vertices.keySet());
+    Collections.sort(etiquetasList);
+    Comparable[] etiquetas = etiquetasList.toArray(new Comparable[0]);
+
             int etiquetaMasLarga = stringMasLargo(etiquetas);
             int datoMasLargo = 0;
             String infinito = "Inf";

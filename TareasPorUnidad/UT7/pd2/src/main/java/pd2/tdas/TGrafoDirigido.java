@@ -70,7 +70,7 @@ public class TGrafoDirigido implements IGrafoDirigido {
     }
 
    public Double[][] floyd(Object[] etiquetas) {
-    Double[][] C = UtilGrafos.obtenerMatrizCostos(vertices, etiquetas);
+    Double[][] C = UtilGrafos.obtenerMatrizCostos(vertices);
     Double[][] A = new Double[C.length][C.length];
     int n = C.length;
     for (int i = 0; i < n; i++)
@@ -88,7 +88,7 @@ public class TGrafoDirigido implements IGrafoDirigido {
 
   public Double obtenerExcentricidad(Comparable etiquetaVertice) {
     Object[] etiquetas = getEtiquetasOrdenado();
-    Double[][] floyd = floyd(etiquetas);
+    Double[][] floyd = floyd();
 
     int idx = -1;
     for (int i = 0; i < etiquetas.length; i++) {

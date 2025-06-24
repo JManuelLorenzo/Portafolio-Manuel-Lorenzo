@@ -44,7 +44,7 @@ de adyacencias e imprimirla en pantalla. Verificar que es correcta de acuerdo al
         }
         
         
-    BufferedReader br = new BufferedReader(new FileReader("pd2/src/aristas.txt"));
+    BufferedReader br = new BufferedReader(new FileReader("pd2/src/main/java/pd2/aristas.txt"));
     String str;
       while((str = br.readLine()) != null){
         String[] elementosParaArista = str.trim().split("\\s*,\\s*");
@@ -54,15 +54,15 @@ de adyacencias e imprimirla en pantalla. Verificar que es correcta de acuerdo al
 
 
 // Utilizando el mapa.
-      Integer[][] retorno = new Integer[grafo.getVertices().size()][grafo.getVertices().size()];
+      Double[][] retorno = new Double[grafo.getVertices().size()][grafo.getVertices().size()];
       Object[] etiquetas = grafo.getEtiquetasOrdenado();
       for(int i = 0; i < retorno.length; i ++){
         for (int j = 0; j < retorno.length; j++) {
             if (grafo.existeArista((String)etiquetas[i], (String)etiquetas[j])) {
-                retorno[i][j] = 1;
+                retorno[i][j] = 1.0;
             }
             else{
-                retorno[i][j] = 0;
+                retorno[i][j] = 0.0;
             }
         }
       }

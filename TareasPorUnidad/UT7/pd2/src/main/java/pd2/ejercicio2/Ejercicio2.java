@@ -18,19 +18,19 @@ public class Ejercicio2 {
         Collection<IVertice> vertices = new ArrayList<>();
          Collection<IArista> aristas = new ArrayList<>();
         TGrafoDirigido grafo = new TGrafoDirigido(vertices,aristas);   
-        String[] listaComparables = {"Artigas", "Canelones", "Durazno", "Florida", "Montevideo", "Punta del Este",  "Rocha","Colonia"}; // inserta vertices.
+        String[] listaComparables =  {"Artigas", "Canelones", "Colonia", "Durazno", "Florida", "Montevideo", "Punta del Este", "Rocha"};// inserta vertices.
         for (String comparable : listaComparables) {
             grafo.insertarVertice(comparable);
         }
         
         
-    BufferedReader br = new BufferedReader(new FileReader("pd2/src/aristas.txt"));
+    BufferedReader br = new BufferedReader(new FileReader("pd2/src/main/java/pd2/ejercicio2/aristas.txt"));
     String str;
       while((str = br.readLine()) != null){
        String[] elementosParaArista = str.trim().split("\\s*,\\s*");
         TArista arista = new TArista(elementosParaArista[0], elementosParaArista[1], Integer.parseInt(elementosParaArista[2]));
         grafo.insertarArista(arista);
       }
-      UtilGrafos.imprimirMatriz(grafo.floyd(), grafo.getVertices() );
+      UtilGrafos.imprimirMatrizMejorado(grafo.floyd(), grafo.getVertices() , "Floyd");
    } 
 }

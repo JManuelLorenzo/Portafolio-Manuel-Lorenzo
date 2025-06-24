@@ -14,7 +14,7 @@ import pd2.tdas.UtilGrafos;
 
 public class ejercicio3 {
      public static void main(String[] args) throws IOException {
-   TGrafoDirigido a = UtilGrafos.cargarGrafo("pd2/src/main/java/pd2/ejercicio3/nodos.txt", "pd2/src/aristas.txt", false, TGrafoDirigido.class);
+   TGrafoDirigido a = UtilGrafos.cargarGrafo("pd2/src/main/java/pd2/ejercicio3/nodos2.txt", "pd2/src/main/java/pd2/ejercicio3/aristas2.txt", false, TGrafoDirigido.class);
     System.out.println(a.obtenerExcentricidad("Colonia"));  
     System.out.println(a.centroDelGrafo());
       
