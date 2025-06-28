@@ -1,0 +1,37 @@
+ public boolean tieneCiclo(){
+         for (IVertice verticeActual : vertices.values()) {
+            if (!verticeActual.getVisitado()) {
+            TCamino camino = new TCamino((TVertice) verticeActual);
+            if(((TVertice)verticeActual).tieneCiclo(camino)){ 
+                return true;
+            }}
+            
+         }
+       desvisitarVertices(); 
+        return false;
+    } 
+
+
+
+public boolean tieneCiclo(TCamino camino){
+         // linea clave. para mi.
+         this.setVisitado(true);
+        for (IAdyacencia iAdyacencia : adyacentes) {
+            TVertice<T> destino = (TVertice<T>) ((TAdyacencia)iAdyacencia).getDestino();
+            camino.agregarAdyacencia(((TAdyacencia)iAdyacencia));
+            if (destino.visitado && camino.getOtrosVertices().contains(destino.getEtiqueta())){ 
+                return true;
+            }
+            else{
+                if (!destino.getVisitado()) {
+                    if (destino.tieneCiclo(camino)) {
+                        return true;
+                    }
+                }
+            }
+            camino.eliminarAdyacencia(((TAdyacencia)iAdyacencia)); // backtracking.
+        }
+        setVisitado(false);
+        return false;
+
+Creo que este es el mejor enfoque posible,  se tiene un orden de O(V * E)
