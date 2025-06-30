@@ -266,6 +266,46 @@ public class TGrafoDirigido implements IGrafoDirigido {
             }
             desvisitarVertices();
             return lista;}
+    public LinkedList<Set<TVertice>> obtenerComponentes(){
+        LinkedList<Set<TVertice>> linkedList = new LinkedList<>();
+        for (IVertice v : vertices.values()) {
+            Set<TVertice> set = new HashSet<>();
+            TVertice tV = ((TVertice)v);
+            if (!tV.getVisitado()) {
+                tV.obtenerComponente(linkedList,set);
+            }
+            
+        }
+        return  linkedList;
+    }
+    public boolean CheckearEsConexo(){
+        TGrafoDirigido grafoTransverso  = getTransverso();
+        TVertice vN = vertices.values().toArray(new TVertice[0])[0];
+        TVertice vT = grafoTransverso.vertices.values().toArray(new TVertice[0])[0];
+        LinkedList none = new LinkedList<>();
+        vN.bpf(none);
+        vT.bpf(none);
+        for (IVertice variosT : vertices.values()) {
+            if(!variosT.getVisitado()){
+                return false;
+            }
+        }
+        for (IVertice variosN : vertices.values()) {
+            if(!variosN.getVisitado()){
+                return false;
+            }
+        }
+        
 
+        return true;
+    }
+    private TGrafoDirigido getTransverso(){
+        Collection<IArista> none = new LinkedList<>(); // Necesito poner algo, no puedo poner null.
+        TGrafoDirigido g = new TGrafoDirigido(vertices.values(), none);
+        vertices.values().toArray(new TVertice[0])[0].getGrafoTransverso(g); // Toma un nodo.
+        return g;
+    }
 }
+
+
 

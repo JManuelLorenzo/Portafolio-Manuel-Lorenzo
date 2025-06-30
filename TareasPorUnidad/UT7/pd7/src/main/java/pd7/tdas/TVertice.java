@@ -177,7 +177,7 @@ public void bpf(Collection<TVertice> YaVisitados) {
         for (IAdyacencia arista : adyacentes) {
            TVertice<T> v = ((TVertice<T>)arista.getDestino());
            if (!v.getVisitado()) {
-            v.ordenParcial(lista);
+            v.ordenTopologico(lista);
            }
         }
         lista.addFirst(this); 
