@@ -4,6 +4,7 @@ import java.text.CollationElementIterator;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class TVertice<T> implements IVertice {
 
@@ -170,4 +171,39 @@ public void bpf(Collection<TVertice> YaVisitados) {
         }
         lista.addFirst(this); 
     }
+
+     public void obtenerComponente(LinkedList<Set<TVertice>> linkedList, Set<TVertice> set) {
+        if(visitado){
+          Iterator<Set<TVertice>> iteratorLinkedList =  linkedList.iterator();
+          while (iteratorLinkedList.hasNext()) {
+            Set<TVertice> setInList = iteratorLinkedList.next();
+           if (setInList.contains(this)) {
+                setInList.addAll(set);
+                return;
+           }
+          }
+        }
+        else{
+            for (IAdyacencia adyacente: adyacentes) {
+                TAdyacencia tAdyacencia = ((TAdyacencia)adyacente);
+                ((TVertice)tAdyacencia.getDestino()).obtenerComponente(linkedList, set);
+            }
+            set.add(this);
+            this.setVisitado(true);
+
+        }
+     }
+     public void getGrafoTransverso(TGrafoDirigido g) {
+        this.visitado = true;  
+        for (IAdyacencia adyacente : adyacentes) { 
+            TVertice destino = (TVertice) adyacente.getDestino();
+            if (!destino.getVisitado()) {
+                destino.getGrafoTransverso(g);
+            }
+            g.insertarArista(new TArista(destino.getEtiqueta(),etiqueta , adyacente.getCosto()));
+        }
+    }
+     
+
+
 } 

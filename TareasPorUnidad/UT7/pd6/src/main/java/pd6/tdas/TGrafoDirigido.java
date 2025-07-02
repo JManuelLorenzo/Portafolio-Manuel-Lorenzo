@@ -3,6 +3,8 @@ package pd6.tdas;
 import java.nio.channels.NetworkChannel;
 import java.util.*;
 import java.util.concurrent.CancellationException;
+import pd7.tdas.TCamino;
+import pd7.tdas.TVertice;
 
 public class TGrafoDirigido implements IGrafoDirigido {
 
@@ -229,20 +231,140 @@ public class TGrafoDirigido implements IGrafoDirigido {
         return false;
     } 
 
-    // implementacion para dirigido. 
-   public int funcionDijikstra(TGrafoDirigido g, TVertice s){
-    HashMap <TVertice, Double> distancia = new HashMap<>();
-    ArrayList<Boolean> visitados = new ArrayList<>();
-    for (IVertice w  : g.vertices.values()) {
-        if (s.buscarAdyacencia(w.getEtiqueta()) == null) {
-            distancia.put(w, Double.MAX_VALUE); // Como? 
-        }
-        
-    }
-    
-    
-   }
-    
+    /**
+     * Algoritmo de Dijkstra para grafos dirigidos.
+     * @param etiquetaOrigen Etiqueta del vértice de origen
+     * @return Mapa con las distancias mínimas desde el origen a cada vértice
+     */
+    public Map<Comparable, Double> dijkstra(Comparable etiquetaOrigen) {
+        Map<Comparable, Double> distancia = new HashMap<>();
+        Map<Comparable, Boolean> visitados = new HashMap<>();
 
+        // Inicializar distancias y visitados
+        for (IVertice v : vertices.values()) {
+            distancia.put(v.getEtiqueta(), Double.MAX_VALUE);
+            visitados.put(v.getEtiqueta(), false);
+        }
+
+        distancia.put(etiquetaOrigen, 0.0);
+
+        while (visitados.containsValue(false)) {
+            // Seleccionar el vértice no visitado con menor distancia
+            Comparable seleccion = null;
+            double minDist = Double.MAX_VALUE;
+            for (Comparable etiqueta : vertices.keySet()) {
+                if (!visitados.get(etiqueta) && distancia.get(etiqueta) < minDist) {
+                    minDist = distancia.get(etiqueta);
+                    seleccion = etiqueta;
+                }
+            }
+            if (seleccion == null) break; // No hay más alcanzables
+
+            visitados.put(seleccion, true);
+
+            IVertice verticeSeleccionado = vertices.get(seleccion);
+            for (IAdyacencia ady : verticeSeleccionado.getAdyacentes()) {
+                Comparable vecino = ady.getDestino().getEtiqueta();
+                if (!visitados.get(vecino)) {
+                    double nuevaDist = distancia.get(seleccion) + ady.getCosto();
+                    if (nuevaDist < distancia.get(vecino)) {
+                        distancia.put(vecino, nuevaDist);
+                    }
+                }
+            }
+        }
+        return distancia;
+    }
+
+    /**
+ * Dijkstra que devuelve predecesores y distancias.
+ * @param g grafo dirigido
+ * @param s vértice origen
+ * @return Un mapa con distancias y otro con predecesores
+ */
+public static Map<String, Map<IVertice, ?>> dijkstraConPredecesores(TGrafoDirigido g, TVertice s) {
+    HashMap<IVertice, Double> distancia = new HashMap<>();
+    HashMap<IVertice, Boolean> visitados = new HashMap<>();
+    HashMap<IVertice, IVertice> predecesores = new HashMap<>();
+
+    for (IVertice v : g.vertices.values()) {
+        distancia.put(v, Double.MAX_VALUE);
+        visitados.put(v, false);
+        predecesores.put(v, null);
+    }
+    distancia.put(s, 0.0);
+
+    while (visitados.containsValue(false)) {
+        // Seleccionar el vértice no visitado con menor distancia
+        IVertice seleccion = null;
+        double minDist = Double.MAX_VALUE;
+        for (IVertice v : g.vertices.values()) {
+            if (!visitados.get(v) && distancia.get(v) < minDist) {
+                minDist = distancia.get(v);
+                seleccion = v;
+            }
+        }
+        if (seleccion == null) break; // No quedan alcanzables
+
+        visitados.put(seleccion, true);
+
+        for (IAdyacencia ady : seleccion.getAdyacentes()) {
+            IVertice vecino = ady.getDestino();
+            if (!visitados.get(vecino)) {
+                double nuevaDist = distancia.get(seleccion) + ady.getCosto();
+                if (nuevaDist < distancia.get(vecino)) {
+                    distancia.put(vecino, nuevaDist);
+                    predecesores.put(vecino, seleccion);
+                }
+            }
+        }
+    }
+    Map<String, Map<IVertice, ?>> resultado = new HashMap<>();
+    resultado.put("distancia", distancia);
+    resultado.put("predecesores", predecesores);
+    return resultado;
+}
+public List<Comparable> reconstruirCamino(Comparable origen, Comparable destino, Map<Comparable, Comparable> predecesor) {
+    LinkedList<Comparable> camino = new LinkedList<>();
+    Comparable actual = destino;
+    while (actual != null) {
+        camino.addFirst(actual);
+        if (actual.equals(origen)) break;
+        actual = predecesor.get(actual);
+    }
+    if (!camino.getFirst().equals(origen)) {
+        // No hay camino
+        return Collections.emptyList();
+    }
+    return camino;
 }
 
+/**
+ * Reconstruye el camino más corto como un TCamino usando el mapa de predecesores.
+ * @param origen etiqueta del vértice origen
+ * @param destino etiqueta del vértice destino
+ * @param predecesor mapa de predecesores (etiqueta -> etiqueta)
+ * @return TCamino con el camino más corto, o null si no hay camino
+ */
+public TCamino reconstruirTCamino(Comparable origen, Comparable destino, Map<Comparable, Comparable> predecesor) {
+    LinkedList<Comparable> etiquetas = new LinkedList<>();
+    Comparable actual = destino;
+    while (actual != null) {
+        etiquetas.addFirst(actual);
+        if (actual.equals(origen)) break;
+        actual = predecesor.get(actual);
+    }
+    if (!etiquetas.getFirst().equals(origen)) {
+        // No hay camino
+        return null;
+    }
+    TVertice vOrigen = (TVertice) vertices.get(origen);
+    TCamino camino = new TCamino(vOrigen);
+    Iterator<Comparable> it = etiquetas.iterator();
+    if (it.hasNext()) it.next(); // saltar el origen, ya está en TCamino
+    while (it.hasNext()) {
+        camino.getOtrosVertices().add(it.next());
+    }
+    return camino;
+}
+}

@@ -287,23 +287,26 @@ public class TGrafoDirigido implements IGrafoDirigido {
         vT.bpf(none);
         for (IVertice variosT : vertices.values()) {
             if(!variosT.getVisitado()){
+                desvisitarVertices();
                 return false;
             }
         }
         for (IVertice variosN : vertices.values()) {
             if(!variosN.getVisitado()){
+                desvisitarVertices();
                 return false;
             }
         }
-        
-
+        desvisitarVertices();
         return true;
     }
     private TGrafoDirigido getTransverso(){
         Collection<IArista> none = new LinkedList<>(); // Necesito poner algo, no puedo poner null.
         TGrafoDirigido g = new TGrafoDirigido(vertices.values(), none);
         vertices.values().toArray(new TVertice[0])[0].getGrafoTransverso(g); // Toma un nodo.
+        desvisitarVertices();
         return g;
+        
     }
 }
 
