@@ -1,0 +1,84 @@
+Lo que se debe implementar para resolver el probleam de forma
+concreta y correcta una alternativa de Dijsktra que se implementa a través 
+de  encontrar siempre el camino más pesado, lo que implica que es por definición de
+la letra el más seguro. 
+Aqui dejo mi respuesta en JAVA como corresponde, tambíen añado un método adicional que permite 
+obtener el camino para cumplir más con la consigna, ambos irian en la clase TGrafoDirigido.
+
+* Dijkstra que devuelve predecesores y distancias. ES UN DIJSKTRA MODIFICADO QUE DEVUELVE LAS DISTANCIAS MAS LARGAS. 
+ * @param g grafo dirigido
+ * @param s vértice origen
+ * @return Un mapa con distancias y otro con predecesores
+ */
+public static Map<String, Map<IVertice, ?>> dijkstraConPredecesores(TGrafoDirigido g, TVertice s) {
+    HashMap<IVertice, Double> distancia = new HashMap<>();
+    HashMap<IVertice, Boolean> visitados = new HashMap<>();
+    HashMap<IVertice, IVertice> predecesores = new HashMap<>();
+
+    for (IVertice v : g.vertices.values()) { // Se inician los diccionarios. 
+        distancia.put(v, Double.MIN_VALUE);
+        visitados.put(v, false);
+        predecesores.put(v, null);
+    }
+    distancia.put(s, 1); // Como es el mismo, su distancia es 1, tiene que seguro su inicio.
+
+    while (visitados.containsValue(false)) {
+        // Seleccionar el vértice no visitado con menor distancia
+        IVertice seleccion = null;
+        double minDist = Double.NEGATIVE_INFINITY;
+        for (IVertice v : g.vertices.values()) {
+            if (!visitados.get(v) && distancia.get(v) > maxDist) {
+                maxDist = distancia.get(v);
+                seleccion = v;
+            }
+        }
+        if (seleccion == null) break; // No quedan alcanzables
+
+        visitados.put(seleccion, true);
+
+        for (IAdyacencia ady : seleccion.getAdyacentes()) {
+            IVertice vecino = ady.getDestino();
+            if (!visitados.get(vecino)) {
+                double nuevaDist = distancia.get(seleccion) + ady.getCosto();
+                if (nuevaDist > distancia.get(vecino)) {
+                    distancia.put(vecino, nuevaDist);
+                    predecesores.put(vecino, seleccion);
+                }
+            }
+        }
+    }
+    Map<String, Map<IVertice, ?>> resultado = new HashMap<>();
+    resultado.put("distancia", distancia);
+    resultado.put("predecesores", predecesores);
+    return resultado;
+}
+
+/**
+ * Reconstruye el camino más corto como un TCamino usando el mapa de predecesores.
+ * @param origen etiqueta del vértice origen
+ * @param destino etiqueta del vértice destino
+ * @param predecesor mapa de predecesores (etiqueta -> etiqueta)
+ * @return TCamino con el camino más corto, o null si no hay camino
+ */
+public TCamino reconstruirTCamino(Comparable origen, Comparable destino, Map<Comparable, Comparable> predecesor) {
+    LinkedList<Comparable> etiquetas = new LinkedList<>();
+    Comparable actual = destino;
+    while (actual != null) {
+        etiquetas.addFirst(actual);
+        if (actual.equals(origen)) break;
+        actual = predecesor.get(actual);
+    }
+    if (!etiquetas.getFirst().equals(origen)) {
+        // No hay camino
+        return null;
+    }
+    TVertice vOrigen = (TVertice) vertices.get(origen);
+    TCamino camino = new TCamino(vOrigen);
+    Iterator<Comparable> it = etiquetas.iterator();
+    if (it.hasNext()) it.next(); // saltar el origen, ya está en TCamino
+    while (it.hasNext()) {
+        camino.getOtrosVertices().add(it.next());
+    }
+    return camino;
+}
+}

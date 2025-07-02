@@ -3,8 +3,9 @@ package pd6.tdas;
 import java.nio.channels.NetworkChannel;
 import java.util.*;
 import java.util.concurrent.CancellationException;
-import pd7.tdas.TCamino;
-import pd7.tdas.TVertice;
+
+import pd4.tdas.textos.tdas.IAdyacencia;
+import pd4.tdas.textos.tdas.IVertice;
 
 public class TGrafoDirigido implements IGrafoDirigido {
 
@@ -287,12 +288,12 @@ public static Map<String, Map<IVertice, ?>> dijkstraConPredecesores(TGrafoDirigi
     HashMap<IVertice, Boolean> visitados = new HashMap<>();
     HashMap<IVertice, IVertice> predecesores = new HashMap<>();
 
-    for (IVertice v : g.vertices.values()) {
+    for (IVertice v : g.vertices.values()) { // Se inician los diccionarios. 
         distancia.put(v, Double.MAX_VALUE);
         visitados.put(v, false);
         predecesores.put(v, null);
     }
-    distancia.put(s, 0.0);
+    distancia.put(s, 0.0); // Como es el mismo, su distancia es 0.0.
 
     while (visitados.containsValue(false)) {
         // Seleccionar el vértice no visitado con menor distancia
@@ -324,20 +325,6 @@ public static Map<String, Map<IVertice, ?>> dijkstraConPredecesores(TGrafoDirigi
     resultado.put("predecesores", predecesores);
     return resultado;
 }
-public List<Comparable> reconstruirCamino(Comparable origen, Comparable destino, Map<Comparable, Comparable> predecesor) {
-    LinkedList<Comparable> camino = new LinkedList<>();
-    Comparable actual = destino;
-    while (actual != null) {
-        camino.addFirst(actual);
-        if (actual.equals(origen)) break;
-        actual = predecesor.get(actual);
-    }
-    if (!camino.getFirst().equals(origen)) {
-        // No hay camino
-        return Collections.emptyList();
-    }
-    return camino;
-}
 
 /**
  * Reconstruye el camino más corto como un TCamino usando el mapa de predecesores.
@@ -367,4 +354,27 @@ public TCamino reconstruirTCamino(Comparable origen, Comparable destino, Map<Com
     }
     return camino;
 }
+ public List<Comparable> bfs(Comparable etiquetaVertice){
+    Queue<IVertice> cola = new LinkedList<>();
+    List<Comparable> resultados = new LinkedList<>();
+    IVertice inicio = vertices.get(etiquetaVertice);
+    cola.add(inicio);
+    vertices.get(inicio).setVisitado(true);
+
+    
+    while (!cola.isEmpty()) {
+        IVertice actual = cola.poll();
+        resultados.add(actual.getEtiqueta());
+        for (IAdyacencia ad : actual.getAdyacentes()) {
+            IVertice destino = ad.getDestino();
+            if (!destino.getVisitado()) {
+                cola.add(destino);
+                destino.setVisitado(true);
+            }
+        }
+    }
+    desvisitarVertices();
+    return resultados;
+ }
+
 }

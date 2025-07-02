@@ -1,0 +1,41 @@
+He razonado varias formas de realizar este problema, primeramente me decidi por una estrategia un poco más simple,
+basandome únicamente en  la idea de resolver el problema a través de tomar los grafos e ir poniendolos en aristas. 
+Fue bastante un quebradero de cabeza sin sentido, cuando realmente lo importante era la idea de aplicar orden topologico.
+Esto te brinda el camino desde hasta el fin,  y como pueden existir varios origenes los importante era crear un nodo "ficticio"
+al inicio de todos para todos, de esa forma se puede utilizar el sorteo topologico sin ningun tipo de problema.
+
+Para obtener la cantidad exacta de semestres, lo que se debe aplicar es la idea de que el orden topologico, retorna un stack
+o el camino, una lista, etc. Es algo que tiene un sort y por lo tanto una longitud, lo que implica. que se puede medir, esto al restarle 
+1 es la cantidad de semestres, ya que de por medio esta el origen.
+
+  Implmentacion del método obtener orden Topologico para el grafo
+    public  LinkedList<TVertice> ordenTopologico(){
+        if(tieneCiclo()) return null;
+        desvisitarVertices();
+            HashSet<IVertice> posiblesOrigenes = new HashSet<>(vertices.values());
+            for (IVertice iVertice : vertices.values()) {
+                for (IAdyacencia arista : iVertice.getAdyacentes()) {
+                    posiblesOrigenes.remove(arista.getDestino());
+                }}
+            LinkedList<TVertice> lista = new LinkedList<>();
+            for (IVertice vertice : posiblesOrigenes) {
+                TVertice tVertice = (TVertice)vertice;
+               if (tVertice.getAdyacentes() != null) {
+                tVertice.ordenTopologico(lista); 
+               }
+            }
+            desvisitarVertices();
+            return lista;
+    Implmentacion para del orden topologico para el vertice:
+      public void ordenTopologico(LinkedList<TVertice> lista) {
+         visitado = true;
+        for (IAdyacencia arista : adyacentes) {
+           TVertice<T> v = ((TVertice<T>)arista.getDestino());
+           if (!v.getVisitado()) {
+            v.ordenTopologico(lista);
+           }
+        }
+        lista.addFirst(this); 
+    }
+
+Se utilizaria el metodo de ordenTopologico con el grafo y se retornaria el lenght de la list -1.
