@@ -16,16 +16,16 @@ public static Map<String, Map<IVertice, ?>> dijkstraConPredecesores(TGrafoDirigi
     HashMap<IVertice, IVertice> predecesores = new HashMap<>();
 
     for (IVertice v : g.vertices.values()) { // Se inician los diccionarios. 
-        distancia.put(v, Double.MIN_VALUE);
+        distancia.put(v, 0.0);
         visitados.put(v, false);
         predecesores.put(v, null);
     }
-    distancia.put(s, 1); // Como es el mismo, su distancia es 1, tiene que seguro su inicio.
+    distancia.put(s, 1.0); // Como es el mismo, su distancia es 1, tiene que seguro su inicio.
 
     while (visitados.containsValue(false)) {
-        // Seleccionar el vértice no visitado con menor distancia
+        // Seleccionar el vértice no visitado con mayor distancia
         IVertice seleccion = null;
-        double minDist = Double.NEGATIVE_INFINITY;
+        double maxDist = Double.NEGATIVE_INFINITY;
         for (IVertice v : g.vertices.values()) {
             if (!visitados.get(v) && distancia.get(v) > maxDist) {
                 maxDist = distancia.get(v);
@@ -39,7 +39,7 @@ public static Map<String, Map<IVertice, ?>> dijkstraConPredecesores(TGrafoDirigi
         for (IAdyacencia ady : seleccion.getAdyacentes()) {
             IVertice vecino = ady.getDestino();
             if (!visitados.get(vecino)) {
-                double nuevaDist = distancia.get(seleccion) + ady.getCosto();
+                double nuevaDist = distancia.get(seleccion) * ady.getCosto();
                 if (nuevaDist > distancia.get(vecino)) {
                     distancia.put(vecino, nuevaDist);
                     predecesores.put(vecino, seleccion);
