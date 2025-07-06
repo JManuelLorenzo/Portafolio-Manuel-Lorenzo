@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pd1</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="unidad-temática-9---práctico-domiciliario-individual-1">UNIDAD TEMÁTICA 9 - PRÁCTICO DOMICILIARIO INDIVIDUAL 1</h1>
+<h3 id="ejercicio-1-análisis-de-generadordatosgenericos.java">EJERCICIO 1: Análisis de GeneradorDatosGenericos.java</h3>
+<p><strong>1) ¿Cómo se genera un vector monótonamente ascendente?</strong></p>
+<p>El método <code>generarDatosAscendentes</code> crea un arreglo donde cada posición almacena su propio índice como valor. Esto significa que:</p>
+<ul>
+<li>En la posición 0 se guarda el valor 0</li>
+<li>En la posición 1 se guarda el valor 1</li>
+<li>Y así sucesivamente hasta completar el arreglo</li>
+</ul>
+<p>El resultado es una secuencia perfectamente ordenada de forma creciente: [0, 1, 2, 3, …, n-1]</p>
+<p><strong>2) ¿Cómo se genera un vector monótonamente descendente?</strong></p>
+<p>El método <code>generarDatosDescendentes</code> utiliza una fórmula inversa. Para cada posición i, calcula el valor como (tamañoMaximo - (i+1)). Esto produce:</p>
+<ul>
+<li>Primera posición: tamañoMaximo - 1</li>
+<li>Segunda posición: tamañoMaximo - 2</li>
+<li>Última posición: 0</li>
+</ul>
+<p>Generando una secuencia decreciente perfecta: [n-1, n-2, n-3, …, 1, 0]</p>
+<p><strong>3) ¿Cómo se genera un vector con valores aleatorios? ¿Pueden existir claves repetidas? ¿Cuál es el orden del tiempo de ejecución?</strong></p>
+<p>El método <code>generarDatosAleatorios</code> implementa una permutación aleatoria:</p>
+<ul>
+<li>Utiliza un arreglo booleano para marcar posiciones ya ocupadas</li>
+<li>Para cada valor i (de 0 a n-1), busca una posición aleatoria disponible</li>
+<li>Si la posición está ocupada, aplica sondeo lineal hasta encontrar una libre</li>
+</ul>
+<p><strong>Características importantes:</strong></p>
+<ul>
+<li><strong>NO pueden existir claves repetidas</strong>: cada valor de 0 a n-1 aparece exactamente una vez</li>
+<li><strong>Complejidad temporal</strong>: O(n²) en el peor caso, debido al sondeo lineal cuando quedan pocas posiciones libres</li>
+<li><strong>Resultado</strong>: una permutación aleatoria de los números [0, 1, 2, …, n-1]</li>
+</ul>
+<p><strong>4) ¿Cuántos elementos contiene el vector de datos generado? ¿Cómo modificar para que sea parametrizable?</strong></p>
+<p>Actualmente el código ya es parametrizable - cada método recibe <code>tamañoMaximo</code> como parámetro. Sin embargo, existe una constante <code>TAMANIO_MAX = 5</code> que no se utiliza en los métodos mostrados.</p>
+<p>Para usar la clase:</p>
+<pre class=" language-java"><code class="prism  language-java">GeneradorDatosGenericos generador <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GeneradorDatosGenericos</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> datos <span class="token operator">=</span> generador<span class="token punctuation">.</span><span class="token function">generarDatosAleatorios</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Vector de 100 elementos</span>
+</code></pre>
+<p><strong>5) ¿Cómo podemos verificar que un conjunto está ordenado? ¿Cuál sería el orden del tiempo de ejecución?</strong></p>
+<p>El método <code>estaOrdenado</code> en TClasificador.java implementa esta verificación:</p>
+<ul>
+<li>Recorre el arreglo comparando cada elemento con su sucesor</li>
+<li>Si encuentra algún par donde el elemento anterior es mayor que el siguiente, retorna false</li>
+<li>Si completa el recorrido sin encontrar inversiones, retorna true</li>
+</ul>
+<p><strong>Complejidad:</strong> O(n) - debe examinar cada elemento una vez en el peor caso</p>
+<h3 id="ejercicio-2-depuración-y-análisis-de-algoritmos-de-ordenamiento">EJERCICIO 2: Depuración y Análisis de Algoritmos de Ordenamiento</h3>
+<p><strong>Análisis de los errores encontrados:</strong></p>
+<p><strong>1) Ordenación por Inserción:</strong></p>
+<ul>
+<li>El algoritmo actual utiliza intercambios sucesivos en lugar de desplazamientos</li>
+<li>Aunque funciona correctamente, no es la implementación clásica más eficiente</li>
+<li>Realiza más escrituras de las necesarias</li>
+</ul>
+<p><strong>2) Shellsort:</strong></p>
+<ul>
+<li>La implementación es correcta</li>
+<li>Usa la secuencia de incrementos: [3223, 358, 51, 10, 3, 1]</li>
+<li>Verifica que el incremento sea menor que la mitad del tamaño del arreglo</li>
+</ul>
+<p><strong>3) Burbuja:</strong></p>
+<ul>
+<li>Implementación correcta del algoritmo burbuja clásico</li>
+<li>Hace “burbujear” los elementos menores hacia el inicio</li>
+<li>No incluye optimizaciones como detección temprana de ordenamiento</li>
+</ul>
+<p><strong>Tiempos de ejecución esperados:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Algoritmo</th>
+<th>Mejor Caso</th>
+<th>Caso Promedio</th>
+<th>Peor Caso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inserción</td>
+<td>O(n) - ya ordenado</td>
+<td>O(n²)</td>
+<td>O(n²) - orden inverso</td>
+</tr>
+<tr>
+<td>Shellsort</td>
+<td>O(n log n)</td>
+<td>Depende de gaps</td>
+<td>O(n²) con gaps malos</td>
+</tr>
+<tr>
+<td>Burbuja</td>
+<td>O(n²) siempre*</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+</tr>
+</tbody>
+</table><p>*La implementación actual no detecta ordenamiento temprano</p>
+<p><strong>Casos de prueba recomendados:</strong></p>
+<ol>
+<li><strong>Vector pequeño desordenado:</strong> [5, 2, 8, 1, 9]</li>
+<li><strong>Vector ya ordenado:</strong> [1, 2, 3, 4, 5]</li>
+<li><strong>Vector en orden inverso:</strong> [5, 4, 3, 2, 1]</li>
+<li><strong>Vector con duplicados:</strong> [3, 1, 4, 1, 5]</li>
+<li><strong>Vector de un solo elemento:</strong> [42]</li>
+<li><strong>Vector vacío:</strong> []</li>
+</ol>
+<p><strong>Observaciones sobre la implementación actual:</strong></p>
+<ul>
+<li>Los tres algoritmos funcionan correctamente para ordenar</li>
+<li>La implementación de inserción usa más operaciones de las necesarias</li>
+<li>Shellsort está bien implementado con una secuencia de gaps fija</li>
+<li>Burbuja no tiene optimizaciones pero ordena correctamente</li>
+<li>Todos manejan correctamente casos nulos retornando null</li>
+</ul>
+</div>
+</body>
+
+</html>

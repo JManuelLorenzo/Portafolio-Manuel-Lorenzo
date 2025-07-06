@@ -1,0 +1,6 @@
+Montevideo,Asuncion,5
+Montevideo,Buenos_Aires,5
+Buenos_Aires,Quito,1
+Quito,Curitiba,9
+Asuncion,Curitiba,3
+Buenos_Aires,Curitiba,2

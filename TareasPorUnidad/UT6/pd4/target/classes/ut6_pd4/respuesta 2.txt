@@ -1,0 +1,3 @@
+Decidi implementarlo  a través de un hashmap porque creo que es la mejor manera de realizarlo en terminos de eficiencia pura. 
+A la hora de resolver el problema, mientras que utilice un arrayList, transformando el Set que te brinda el EntrySet para poder sortearlos 
+y que pudiera obtener algo que ya tuviera orden y por lo tanto obtener los 10 primeros.

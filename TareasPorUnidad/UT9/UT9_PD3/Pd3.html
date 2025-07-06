@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pd3</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="práctico-domiciliario-3---respuestas">PRÁCTICO DOMICILIARIO 3 - RESPUESTAS</h1>
+<h2 id="ejercicio-1-condición-quicksort">EJERCICIO 1: Condición Quicksort</h2>
+<p>La condición fundamental que siempre se cumple es la existencia de un pivote. Si no existe un pivote válido, se asume que la partición ya está ordenada (contiene un solo elemento o todos los elementos son iguales), por lo que el algoritmo no se ejecuta. Esta condición del pivote es esencial para el funcionamiento del algoritmo.</p>
+<h3 id="respuestas">Respuestas:</h3>
+<ol>
+<li>
+<p>Total de llamadas recursivas: 8 llamadas (contando la inicial)</p>
+</li>
+<li>
+<p>Máximo nivel de profundidad recursiva: 4 niveles</p>
+</li>
+<li>
+<p>Medición en Java: Se puede ir contando con un entero la cantidad de veces</p>
+</li>
+</ol>
+<h2 id="ejercicio-3-dual-pivot-quicksort">EJERCICIO 3: Dual-Pivot Quicksort</h2>
+<p>La característica principal es el uso de doble pivote, lo que mejora significativamente el rendimiento.</p>
+<h3 id="rendimiento-comparativo">Rendimiento comparativo:</h3>
+<p><strong>Con datos aleatorios distintos:</strong></p>
+<ul>
+<li>
+<p>Quicksort básico: 1310ms</p>
+</li>
+<li>
+<p>Dual-Pivot Quicksort: 1074ms</p>
+</li>
+</ul>
+<p>Es un poco más rápido</p>
+<p><strong>Con datos duplicados:</strong></p>
+<ul>
+<li>
+<p>Quicksort básico: 318ms</p>
+</li>
+<li>
+<p>Dual-Pivot Quicksort: 8ms</p>
+</li>
+<li>
+<p>Mejora: muchas veces más rápido</p>
+</li>
+</ul>
+<p>La implementación de doble pivote muestra una ventaja sustancial, especialmente cuando existen elementos duplicados en el conjunto de datos.</p>
+<h2 id="ejercicio-4-análisis-de-complejidad">EJERCICIO 4: Análisis de Complejidad</h2>
+<h3 id="análisis-del-tiempo-de-ejecución">1. Análisis del tiempo de ejecución:</h3>
+<p><strong>Complejidades:</strong></p>
+<ul>
+<li>
+<p>Peor caso: O(n^2) - cuando se elige siempre el peor pivote posible</p>
+</li>
+<li>
+<p>Mejor caso y caso promedio: O(n log n) - cuando se usa un pivote adecuado</p>
+</li>
+</ul>
+<p><strong>Probabilidad del peor caso:</strong></p>
+<ul>
+<li>
+<p>La probabilidad depende del método de selección del pivote</p>
+</li>
+<li>
+<p>Con algoritmo básico: 1/n (donde n es la cantidad de elementos)</p>
+</li>
+<li>
+<p>Con algoritmo optimizado: cercana a 0</p>
+</li>
+</ul>
+<h3 id="modificación-para-conjuntos-pequeños">2. Modificación para conjuntos pequeños:</h3>
+<p>Antes de cada llamada recursiva, verificar el tamaño de la partición. Si es menor que un rango predefinido, cambiar a un método de ordenación más simple por ejemplo sino continuar con Quicksort.</p>
+<p>Esta optimización mejora el rendimiento al evitar la sobrecarga de la recursión en conjuntos pequeños donde los métodos directos son más eficientes.</p>
+</div>
+</body>
+
+</html>

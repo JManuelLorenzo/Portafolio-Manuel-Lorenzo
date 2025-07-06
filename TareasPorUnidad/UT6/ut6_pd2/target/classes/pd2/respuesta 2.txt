@@ -1,0 +1,4 @@
+
+Aunque el promedio de inserciones vaya aumentando en cuanto a las comparaciones realizadas, no lo hace cuan las exitosas y fallidas
+de manera que se vea tanto la diferencia, esto es una manera de demostrar porque las tablas de hashing se implementan con 0.75 y no con 0.90, pues consumen
+una cantidad de recursos mucho más elevadas. Por unos beneficios marginales. Añado la grafica_comparaciones....
